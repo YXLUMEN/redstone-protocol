@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "redstone-protocol:block/primary_speed_multiplier"
+    }
+  }
+}

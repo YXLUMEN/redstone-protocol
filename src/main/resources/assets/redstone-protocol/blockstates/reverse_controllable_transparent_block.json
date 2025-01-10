@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "redstone-protocol:block/reverse_controllable_transparent_block"
+    },
+    "powered=true": {
+      "model": "redstone-protocol:block/reverse_controllable_transparent_block_on"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "redstone-protocol:block/controllable_vertical_booster"
+    },
+    "powered=true": {
+      "model": "redstone-protocol:block/controllable_vertical_booster_on"
+    }
+  }
+}

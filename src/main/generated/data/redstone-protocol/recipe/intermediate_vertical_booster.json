@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "multi_bench",
+  "key": {
+    "#": {
+      "item": "redstone-protocol:intermediate_speed_multiplier"
+    },
+    "$": {
+      "item": "redstone-protocol:intermediate_horizontal_booster"
+    }
+  },
+  "pattern": [
+    "$#$",
+    "$ $",
+    "$#$"
+  ],
+  "result": {
+    "count": 4,
+    "id": "redstone-protocol:intermediate_vertical_booster"
+  }
+}

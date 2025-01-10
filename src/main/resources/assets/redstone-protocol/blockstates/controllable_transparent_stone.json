@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "minecraft:block/smooth_stone"
+    },
+    "powered=true": {
+      "model": "redstone-protocol:block/controllable_transparent_stone"
+    }
+  }
+}

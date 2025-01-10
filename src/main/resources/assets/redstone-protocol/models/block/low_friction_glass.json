@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "redstone-protocol:block/low_friction_glass"
+  }
+}

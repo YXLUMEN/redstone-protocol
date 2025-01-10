@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "multi_bench",
+  "key": {
+    "#": {
+      "item": "minecraft:hopper"
+    },
+    "D": {
+      "item": "minecraft:dispenser"
+    },
+    "P": {
+      "item": "minecraft:heavy_weighted_pressure_plate"
+    },
+    "S": {
+      "item": "minecraft:smooth_stone"
+    }
+  },
+  "pattern": [
+    "PPP",
+    "D#D",
+    "SSS"
+  ],
+  "result": {
+    "count": 12,
+    "id": "redstone-protocol:item_packer"
+  }
+}

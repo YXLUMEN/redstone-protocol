@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "multi_bench",
+  "key": {
+    "G": {
+      "item": "minecraft:glass"
+    },
+    "I": {
+      "item": "minecraft:ice"
+    }
+  },
+  "pattern": [
+    "III",
+    "GGG"
+  ],
+  "result": {
+    "count": 6,
+    "id": "redstone-protocol:primary_speed_multiplier"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "multi_bench",
+  "key": {
+    "#": {
+      "item": "minecraft:redstone"
+    },
+    "F": {
+      "tag": "minecraft:fence_gates"
+    },
+    "G": {
+      "item": "minecraft:glass"
+    },
+    "R": {
+      "item": "minecraft:redstone_torch"
+    }
+  },
+  "pattern": [
+    "G#G",
+    "GFG",
+    "GRG"
+  ],
+  "result": {
+    "count": 4,
+    "id": "redstone-protocol:reverse_controllable_transparent_block"
+  }
+}

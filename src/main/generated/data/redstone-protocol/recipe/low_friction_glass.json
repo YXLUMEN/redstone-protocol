@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "multi_bench",
+  "key": {
+    "B": {
+      "item": "minecraft:blue_ice"
+    },
+    "G": {
+      "item": "minecraft:glass"
+    }
+  },
+  "pattern": [
+    "GGG",
+    "GBG",
+    "GGG"
+  ],
+  "result": {
+    "count": 8,
+    "id": "redstone-protocol:low_friction_glass"
+  }
+}

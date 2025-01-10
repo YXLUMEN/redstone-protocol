@@ -1,0 +1,31 @@
+{
+  "itemGroup.redstone-protocol": "红石协议",
+  "block.redstone-protocol.low_friction_glass": "低摩擦玻璃",
+
+  "block.redstone-protocol.mob_transparent_block": "生物选择通过玻璃",
+  "block.redstone-protocol.player_transparent_block": "玩家选择通过玻璃",
+  "block.redstone-protocol.item_transparent_block": "物品选择通过玻璃",
+
+  "block.redstone-protocol.primary_speed_multiplier": "初级速度倍增器",
+  "block.redstone-protocol.primary_horizontal_booster": "初级水平加速器",
+  "block.redstone-protocol.primary_vertical_booster": "初级垂直加速器",
+
+  "block.redstone-protocol.intermediate_speed_multiplier": "中级速度倍增器",
+  "block.redstone-protocol.intermediate_horizontal_booster": "中级水平加速器",
+  "block.redstone-protocol.intermediate_vertical_booster": "中级垂直加速器",
+
+  "block.redstone-protocol.advanced_speed_multiplier": "高级速度倍增器",
+  "block.redstone-protocol.advanced_horizontal_booster": "高级水平加速器",
+  "block.redstone-protocol.advanced_vertical_booster": "高级垂直加速器",
+
+  "block.redstone-protocol.controllable_horizontal_booster": "可控水平加速器",
+  "block.redstone-protocol.controllable_vertical_booster": "可控垂直加速器",
+  "block.redstone-protocol.controllable_transparent_block": "可控通过玻璃",
+  "block.redstone-protocol.reverse_controllable_transparent_block": "反转可控通过玻璃",
+  "block.redstone-protocol.controllable_transparent_stone": "可控通过平滑石头",
+
+  "block.redstone-protocol.item_packer": "物品封包器",
+  "block.redstone-protocol.item_unpacker": "物品解包器",
+
+  "block.redstone-protocol.jump_enhancer": "跳跃增强器"
+}

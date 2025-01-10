@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=east,powered=false": {
+      "model": "redstone-protocol:block/controllable_horizontal_booster",
+      "y": 90
+    },
+    "facing=east,powered=true": {
+      "model": "redstone-protocol:block/controllable_horizontal_booster_on",
+      "y": 90
+    },
+    "facing=north,powered=false": {
+      "model": "redstone-protocol:block/controllable_horizontal_booster"
+    },
+    "facing=north,powered=true": {
+      "model": "redstone-protocol:block/controllable_horizontal_booster_on"
+    },
+    "facing=south,powered=false": {
+      "model": "redstone-protocol:block/controllable_horizontal_booster",
+      "y": 180
+    },
+    "facing=south,powered=true": {
+      "model": "redstone-protocol:block/controllable_horizontal_booster_on",
+      "y": 180
+    },
+    "facing=west,powered=false": {
+      "model": "redstone-protocol:block/controllable_horizontal_booster",
+      "y": 270
+    },
+    "facing=west,powered=true": {
+      "model": "redstone-protocol:block/controllable_horizontal_booster_on",
+      "y": 270
+    }
+  }
+}

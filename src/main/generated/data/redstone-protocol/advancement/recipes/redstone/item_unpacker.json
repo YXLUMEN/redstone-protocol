@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_item_unpacker": {
+      "conditions": {
+        "items": [
+          {
+            "items": "redstone-protocol:item_unpacker"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "redstone-protocol:item_unpacker"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_item_unpacker"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "redstone-protocol:item_unpacker"
+    ]
+  }
+}

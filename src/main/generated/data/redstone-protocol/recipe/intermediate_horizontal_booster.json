@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    {
+      "item": "redstone-protocol:intermediate_speed_multiplier"
+    },
+    {
+      "item": "minecraft:powered_rail"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "redstone-protocol:intermediate_horizontal_booster"
+  }
+}

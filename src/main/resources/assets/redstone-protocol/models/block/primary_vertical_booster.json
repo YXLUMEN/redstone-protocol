@@ -1,0 +1,7 @@
+{
+  "parent": "redstone-protocol:block/vertical_booster",
+  "textures": {
+    "vertical_booster": "redstone-protocol:block/primary_booster",
+    "vertical_booster_up": "redstone-protocol:block/primary_booster_up"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    {
+      "item": "minecraft:slime_block"
+    },
+    {
+      "item": "minecraft:piston"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "redstone-protocol:jump_enhancer"
+  }
+}

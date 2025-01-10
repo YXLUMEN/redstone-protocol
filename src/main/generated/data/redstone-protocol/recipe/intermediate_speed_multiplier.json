@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "multi_bench",
+  "key": {
+    "#": {
+      "item": "redstone-protocol:primary_speed_multiplier"
+    },
+    "I": {
+      "item": "minecraft:ice"
+    }
+  },
+  "pattern": [
+    " I ",
+    "I#I",
+    " I "
+  ],
+  "result": {
+    "count": 1,
+    "id": "redstone-protocol:intermediate_speed_multiplier"
+  }
+}

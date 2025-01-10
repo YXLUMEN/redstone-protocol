@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "redstone-protocol:block/item_packer"
+    }
+  }
+}

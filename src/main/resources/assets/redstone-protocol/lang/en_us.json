@@ -1,0 +1,31 @@
+{
+  "itemGroup.redstone-protocol": "Redstone Protocol",
+
+  "block.redstone-protocol.low_friction_glass": "Low Friction Glass",
+  "block.redstone-protocol.mob_transparent_block": "mob transparent block",
+  "block.redstone-protocol.player_transparent_block": "Player transparent block",
+  "block.redstone-protocol.item_transparent_block": "Item transparent block",
+
+  "block.redstone-protocol.primary_speed_multiplier": "Primary speed multiplier",
+  "block.redstone-protocol.primary_horizontal_booster": "Primary horizontal booster",
+  "block.redstone-protocol.primary_vertical_booster": "Primary vertical booster",
+
+  "block.redstone-protocol.intermediate_speed_multiplier": "Intermediate speed multiplier",
+  "block.redstone-protocol.intermediate_horizontal_booster": "Intermediate horizontal booster",
+  "block.redstone-protocol.intermediate_vertical_booster": "Intermediate vertical_booster",
+
+  "block.redstone-protocol.advanced_speed_multiplier": "Advanced speed multiplier",
+  "block.redstone-protocol.advanced_horizontal_booster": "Advanced horizontal booster",
+  "block.redstone-protocol.advanced_vertical_booster": "Advanced vertical booster",
+
+  "block.redstone-protocol.controllable_horizontal_booster": "Controllable horizontal booster",
+  "block.redstone-protocol.controllable_vertical_booster": "Controllable vertical booster",
+  "block.redstone-protocol.controllable_transparent_block": "Controllable transparent block",
+  "block.redstone-protocol.reverse_controllable_transparent_block": "Reverse controllable transparent block",
+  "block.redstone-protocol.controllable_transparent_stone": "Controllable transparent stone",
+
+  "block.redstone-protocol.item_packer": "Item packer",
+  "block.redstone-protocol.item_unpacker": "Item unpacker",
+
+  "block.redstone-protocol.jump_enhancer": "Jump enhancer"
+}

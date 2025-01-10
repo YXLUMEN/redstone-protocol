@@ -1,0 +1,7 @@
+{
+  "parent": "redstone-protocol:block/tablet_device",
+  "textures": {
+    "glass": "minecraft:block/green_stained_glass",
+    "grade": "redstone-protocol:block/intermediate_booster"
+  }
+}

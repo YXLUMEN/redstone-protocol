@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "redstone-protocol:block/low_friction_glass"
+    }
+  }
+}

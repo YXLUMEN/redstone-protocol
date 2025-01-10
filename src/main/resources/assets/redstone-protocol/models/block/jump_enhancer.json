@@ -1,0 +1,7 @@
+{
+  "parent": "redstone-protocol:block/tablet_device",
+  "textures": {
+    "glass": "minecraft:block/slime_block",
+    "grade": "minecraft:block/slime_block"
+  }
+}

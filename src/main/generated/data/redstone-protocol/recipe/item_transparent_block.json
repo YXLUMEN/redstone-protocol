@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "multi_bench",
+  "key": {
+    "#": {
+      "item": "minecraft:hopper"
+    },
+    "F": {
+      "tag": "minecraft:fence_gates"
+    },
+    "G": {
+      "item": "minecraft:glass"
+    }
+  },
+  "pattern": [
+    "G#G",
+    "GFG",
+    "GGG"
+  ],
+  "result": {
+    "count": 4,
+    "id": "redstone-protocol:item_transparent_block"
+  }
+}
