@@ -30,6 +30,16 @@ public class BenchRecipes extends FabricRecipeProvider {
                 .criterion(FabricRecipeProvider.hasItem(RPBlocks.LOW_FRICTION_GLASS), FabricRecipeProvider.conditionsFromItem(RPBlocks.LOW_FRICTION_GLASS))
                 .offerTo(recipeExporter);
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, RPBlocks.IDEAL_ORBIT, 4)
+                .pattern("BBB")
+                .pattern("BIB")
+                .pattern("BBB")
+                .input('I', Items.IRON_BLOCK)
+                .input('B', Items.BLUE_ICE)
+                .group("multi_bench")
+                .criterion(FabricRecipeProvider.hasItem(RPBlocks.IDEAL_ORBIT), FabricRecipeProvider.conditionsFromItem(RPBlocks.IDEAL_ORBIT))
+                .offerTo(recipeExporter);
+
         ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, RPBlocks.PLAYER_TRANSPARENT_BLOCK, 4)
                 .pattern("G#G")
                 .pattern("GFG")
@@ -72,6 +82,12 @@ public class BenchRecipes extends FabricRecipeProvider {
                 .input('#', Items.REDSTONE)
                 .group("multi_bench")
                 .criterion(FabricRecipeProvider.hasItem(RPBlocks.CONTROLLABLE_TRANSPARENT_BLOCK), FabricRecipeProvider.conditionsFromItem(RPBlocks.CONTROLLABLE_TRANSPARENT_BLOCK))
+                .offerTo(recipeExporter);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, RPBlocks.CONTROLLABLE_TRANSPARENT_STONE, 1)
+                .input(Items.SMOOTH_STONE)
+                .input(RPBlocks.CONTROLLABLE_TRANSPARENT_BLOCK)
+                .criterion(FabricRecipeProvider.hasItem(RPBlocks.CONTROLLABLE_TRANSPARENT_STONE), FabricRecipeProvider.conditionsFromItem(RPBlocks.CONTROLLABLE_TRANSPARENT_STONE))
                 .offerTo(recipeExporter);
 
         // 反转通过
@@ -168,6 +184,16 @@ public class BenchRecipes extends FabricRecipeProvider {
                 .criterion(FabricRecipeProvider.hasItem(RPBlocks.ADVANCED_HORIZONTAL_BOOSTER), FabricRecipeProvider.conditionsFromItem(RPBlocks.ADVANCED_HORIZONTAL_BOOSTER))
                 .offerTo(recipeExporter);
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, RPBlocks.UNLIMITED_BOOSTER, 4)
+                .pattern(" R ")
+                .pattern("RPR")
+                .pattern(" R ")
+                .input('P', RPBlocks.PRIMARY_HORIZONTAL_BOOSTER)
+                .input('R', Items.REDSTONE)
+                .group("multi_bench")
+                .criterion(FabricRecipeProvider.hasItem(RPBlocks.UNLIMITED_BOOSTER), FabricRecipeProvider.conditionsFromItem(RPBlocks.UNLIMITED_BOOSTER))
+                .offerTo(recipeExporter);
+
         // 物品封包机
         ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, RPBlocks.ITEM_PACKER, 12)
                 .pattern("PPP")
@@ -192,6 +218,27 @@ public class BenchRecipes extends FabricRecipeProvider {
                 .input('P', Items.HEAVY_WEIGHTED_PRESSURE_PLATE)
                 .group("multi_bench")
                 .criterion(FabricRecipeProvider.hasItem(RPBlocks.ITEM_UNPACKER), FabricRecipeProvider.conditionsFromItem(RPBlocks.ITEM_UNPACKER))
+                .offerTo(recipeExporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, RPBlocks.ITEM_CALIBRATOR, 12)
+                .pattern("SSS")
+                .pattern("P P")
+                .pattern("SSS")
+                .input('S', Items.SMOOTH_STONE)
+                .input('P', Items.PISTON)
+                .group("multi_bench")
+                .criterion(FabricRecipeProvider.hasItem(RPBlocks.ITEM_CALIBRATOR), FabricRecipeProvider.conditionsFromItem(RPBlocks.ITEM_CALIBRATOR))
+                .offerTo(recipeExporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, RPBlocks.ITEM_STEERING_GEAR, 12)
+                .pattern("SSS")
+                .pattern("PRP")
+                .pattern("SSS")
+                .input('S', Items.SMOOTH_STONE)
+                .input('P', Items.PISTON)
+                .input('R', Items.POWERED_RAIL)
+                .group("multi_bench")
+                .criterion(FabricRecipeProvider.hasItem(RPBlocks.ITEM_STEERING_GEAR), FabricRecipeProvider.conditionsFromItem(RPBlocks.ITEM_STEERING_GEAR))
                 .offerTo(recipeExporter);
 
         // 跳跃增强器

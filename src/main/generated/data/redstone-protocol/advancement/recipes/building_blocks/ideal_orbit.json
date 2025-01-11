@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_ideal_orbit": {
+      "conditions": {
+        "items": [
+          {
+            "items": "redstone-protocol:ideal_orbit"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "redstone-protocol:ideal_orbit"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_ideal_orbit"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "redstone-protocol:ideal_orbit"
+    ]
+  }
+}

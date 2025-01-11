@@ -13,6 +13,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.NotNull;
 
 public class HorizontalBoostBlock extends CarpetBlock {
     public static final DirectionProperty HORIZONTAL_FACING = Properties.HORIZONTAL_FACING;
@@ -36,10 +37,14 @@ public class HorizontalBoostBlock extends CarpetBlock {
             default -> new Vec3d(0, 0, -boostStrength);
         };
 
-        entity.setVelocity(horizontalForce.x, entity.getVelocity().y, horizontalForce.z);
-        entity.velocityModified = true;
+        boostEntity(horizontalForce, entity);
 
         super.onEntityCollision(state, world, pos, entity);
+    }
+
+    protected void boostEntity(@NotNull Vec3d horizontalForce, @NotNull Entity entity) {
+        entity.setVelocity(horizontalForce.x, entity.getVelocity().y, horizontalForce.z);
+        entity.velocityModified = true;
     }
 
     @Override

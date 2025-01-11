@@ -14,6 +14,7 @@ public class RPItems {
     public static void initialize() {
         ItemGroupEvents.modifyEntriesEvent(CUSTOM_ITEM_GROUP_KEY).register((itemGroup) -> {
             itemGroup.add(RPBlocks.LOW_FRICTION_GLASS.asItem());
+            itemGroup.add(RPBlocks.IDEAL_ORBIT.asItem());
 
             itemGroup.add(RPBlocks.PLAYER_TRANSPARENT_BLOCK.asItem());
             itemGroup.add(RPBlocks.MOB_TRANSPARENT_BLOCK.asItem());
@@ -32,6 +33,7 @@ public class RPItems {
             itemGroup.add(RPBlocks.ADVANCED_SPEED_MULTIPLIER.asItem());
             itemGroup.add(RPBlocks.ADVANCED_HORIZONTAL_BOOSTER.asItem());
             itemGroup.add(RPBlocks.ADVANCED_VERTICAL_BOOSTER.asItem());
+            itemGroup.add(RPBlocks.UNLIMITED_BOOSTER.asItem());
 
             itemGroup.add(RPBlocks.CONTROLLABLE_HORIZONTAL_BOOST_BLOCK.asItem());
             itemGroup.add(RPBlocks.CONTROLLABLE_VERTICAL_BOOST_BLOCK.asItem());
@@ -39,6 +41,8 @@ public class RPItems {
 
             itemGroup.add(RPBlocks.ITEM_PACKER.asItem());
             itemGroup.add(RPBlocks.ITEM_UNPACKER.asItem());
+            itemGroup.add(RPBlocks.ITEM_CALIBRATOR.asItem());
+            itemGroup.add(RPBlocks.ITEM_STEERING_GEAR.asItem());
 
             itemGroup.add(RPBlocks.JUMP_ENHANCER.asItem());
         });

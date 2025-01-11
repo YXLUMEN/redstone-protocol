@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "redstone-protocol:ideal_orbit",
     "redstone-protocol:controllable_transparent_stone"
   ]
 }

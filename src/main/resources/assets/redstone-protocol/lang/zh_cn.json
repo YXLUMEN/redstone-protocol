@@ -1,6 +1,7 @@
 {
   "itemGroup.redstone-protocol": "红石协议",
   "block.redstone-protocol.low_friction_glass": "低摩擦玻璃",
+  "block.redstone-protocol.ideal_orbit": "理想滑轨",
 
   "block.redstone-protocol.mob_transparent_block": "生物选择通过玻璃",
   "block.redstone-protocol.player_transparent_block": "玩家选择通过玻璃",
@@ -17,6 +18,7 @@
   "block.redstone-protocol.advanced_speed_multiplier": "高级速度倍增器",
   "block.redstone-protocol.advanced_horizontal_booster": "高级水平加速器",
   "block.redstone-protocol.advanced_vertical_booster": "高级垂直加速器",
+  "block.redstone-protocol.unlimited_booster": "无限制加速器",
 
   "block.redstone-protocol.controllable_horizontal_booster": "可控水平加速器",
   "block.redstone-protocol.controllable_vertical_booster": "可控垂直加速器",
@@ -26,6 +28,8 @@
 
   "block.redstone-protocol.item_packer": "物品封包器",
   "block.redstone-protocol.item_unpacker": "物品解包器",
+  "block.redstone-protocol.item_calibrator": "物品归中器",
+  "block.redstone-protocol.item_steering_gear": "物品转向器",
 
   "block.redstone-protocol.jump_enhancer": "跳跃增强器"
 }

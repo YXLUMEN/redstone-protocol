@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "facing=east,output_facing=east": {
+      "model": "redstone-protocol:block/item_steering_gear",
+      "y": 90
+    },
+    "facing=east,output_facing=west": {
+      "model": "redstone-protocol:block/item_steering_gear",
+      "y": 270
+    },
+    "facing=east,output_facing=north": {
+      "model": "redstone-protocol:block/item_steering_gear_side",
+      "y": 90
+    },
+    "facing=east,output_facing=south": {
+      "model": "redstone-protocol:block/item_steering_gear_side_2",
+      "y": 90
+    },
+    "facing=north,output_facing=north": {
+      "model": "redstone-protocol:block/item_steering_gear"
+    },
+    "facing=north,output_facing=south": {
+      "model": "redstone-protocol:block/item_steering_gear",
+      "y": 180
+    },
+    "facing=north,output_facing=west": {
+      "model": "redstone-protocol:block/item_steering_gear_side"
+    },
+    "facing=north,output_facing=east": {
+      "model": "redstone-protocol:block/item_steering_gear_side_2"
+    },
+    "facing=south,output_facing=south": {
+      "model": "redstone-protocol:block/item_steering_gear",
+      "y": 180
+    },
+    "facing=south,output_facing=north": {
+      "model": "redstone-protocol:block/item_steering_gear"
+    },
+    "facing=south,output_facing=east": {
+      "model": "redstone-protocol:block/item_steering_gear_side",
+      "y": 180
+    },
+    "facing=south,output_facing=west": {
+      "model": "redstone-protocol:block/item_steering_gear_side_2",
+      "y": 180
+    },
+    "facing=west,output_facing=west": {
+      "model": "redstone-protocol:block/item_steering_gear",
+      "y": 270
+    },
+    "facing=west,output_facing=east": {
+      "model": "redstone-protocol:block/item_steering_gear",
+      "y": 90
+    },
+    "facing=west,output_facing=north": {
+      "model": "redstone-protocol:block/item_steering_gear_side_2",
+      "y": 270
+    },
+    "facing=west,output_facing=south": {
+      "model": "redstone-protocol:block/item_steering_gear_side",
+      "y": 270
+    }
+  }
+}

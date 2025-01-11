@@ -15,6 +15,7 @@ public class BlockLootTables extends FabricBlockLootTableProvider {
     @Override
     public void generate() {
         addDrop(RPBlocks.LOW_FRICTION_GLASS);
+        addDrop(RPBlocks.IDEAL_ORBIT);
 
         addDrop(RPBlocks.PRIMARY_SPEED_MULTIPLIER);
         addDrop(RPBlocks.PRIMARY_VERTICAL_BOOSTER);
@@ -27,9 +28,12 @@ public class BlockLootTables extends FabricBlockLootTableProvider {
         addDrop(RPBlocks.ADVANCED_HORIZONTAL_BOOSTER);
         addDrop(RPBlocks.CONTROLLABLE_HORIZONTAL_BOOST_BLOCK);
         addDrop(RPBlocks.CONTROLLABLE_VERTICAL_BOOST_BLOCK);
+        addDrop(RPBlocks.UNLIMITED_BOOSTER);
 
         addDrop(RPBlocks.ITEM_PACKER);
         addDrop(RPBlocks.ITEM_UNPACKER);
+        addDrop(RPBlocks.ITEM_CALIBRATOR);
+        addDrop(RPBlocks.ITEM_STEERING_GEAR);
         addDrop(RPBlocks.JUMP_ENHANCER);
 
         addDrop(RPBlocks.PLAYER_TRANSPARENT_BLOCK);

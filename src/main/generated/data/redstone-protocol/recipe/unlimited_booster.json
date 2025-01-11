@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "multi_bench",
+  "key": {
+    "P": {
+      "item": "redstone-protocol:primary_horizontal_booster"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "pattern": [
+    " R ",
+    "RPR",
+    " R "
+  ],
+  "result": {
+    "count": 4,
+    "id": "redstone-protocol:unlimited_booster"
+  }
+}

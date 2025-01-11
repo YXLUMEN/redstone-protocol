@@ -29,6 +29,95 @@ public class RPBlocks {
             true
     );
 
+    public static final Block IDEAL_ORBIT = RPBlocks.register(
+            "ideal_orbit",
+            new Block(AbstractBlock.Settings.create()
+                    .sounds(BlockSoundGroup.METAL)
+                    .strength(1.2f)
+                    .requiresTool()
+                    .slipperiness(0.999f)
+                    .velocityMultiplier(1.1f)
+            ),
+            true
+    );
+
+    public static final Block PLAYER_TRANSPARENT_BLOCK = RPBlocks.register(
+            "player_transparent_block",
+            new SelectTransparentBlock(AbstractBlock.Settings.create()
+                    .sounds(BlockSoundGroup.GLASS)
+                    .nonOpaque()
+                    .strength(0.5f)
+                    .allowsSpawning(Blocks::never)
+                    .solidBlock(Blocks::never)
+                    .suffocates(Blocks::never)
+                    .blockVision(Blocks::never),
+                    PlayerEntity.class
+            ), true
+    );
+    public static final Block MOB_TRANSPARENT_BLOCK = RPBlocks.register(
+            "mob_transparent_block",
+            new SelectTransparentBlock(AbstractBlock.Settings.create()
+                    .sounds(BlockSoundGroup.GLASS)
+                    .nonOpaque()
+                    .strength(0.5f)
+                    .allowsSpawning(Blocks::never)
+                    .solidBlock(Blocks::never)
+                    .suffocates(Blocks::never)
+                    .blockVision(Blocks::never),
+                    MobEntity.class
+            ), true
+    );
+    public static final Block ITEM_TRANSPARENT_BLOCK = RPBlocks.register(
+            "item_transparent_block",
+            new SelectTransparentBlock(AbstractBlock.Settings.create()
+                    .sounds(BlockSoundGroup.GLASS)
+                    .nonOpaque()
+                    .strength(0.5f)
+                    .allowsSpawning(Blocks::never)
+                    .solidBlock(Blocks::never)
+                    .suffocates(Blocks::never)
+                    .blockVision(Blocks::never),
+                    ItemEntity.class
+            ), true
+    );
+
+    public static final Block CONTROLLABLE_TRANSPARENT_BLOCK = RPBlocks.register(
+            "controllable_transparent_block",
+            new ControllableTransparentBlock(AbstractBlock.Settings.create()
+                    .sounds(BlockSoundGroup.GLASS)
+                    .nonOpaque()
+                    .strength(0.5f)
+                    .allowsSpawning(Blocks::never)
+                    .solidBlock(Blocks::never)
+                    .suffocates(Blocks::never)
+                    .blockVision(Blocks::never)
+            ), true
+    );
+
+    public static final Block REVERSE_CONTROLLABLE_TRANSPARENT_BLOCK = RPBlocks.register(
+            "reverse_controllable_transparent_block",
+            new ReverseControllableTransparentBlock(AbstractBlock.Settings.create()
+                    .sounds(BlockSoundGroup.GLASS)
+                    .nonOpaque()
+                    .strength(0.5f)
+                    .allowsSpawning(Blocks::never)
+                    .solidBlock(Blocks::never)
+                    .suffocates(Blocks::never)
+                    .blockVision(Blocks::never)
+            ), true
+    );
+
+    public static final Block CONTROLLABLE_TRANSPARENT_STONE = RPBlocks.register(
+            "controllable_transparent_stone",
+            new ControllableTransparentBlock(AbstractBlock.Settings.create()
+                    .mapColor(MapColor.STONE_GRAY)
+                    .nonOpaque()
+                    .instrument(NoteBlockInstrument.BASEDRUM)
+                    .requiresTool()
+                    .strength(2.0f, 6.0f)
+            ), true
+    );
+
     public static final Block PRIMARY_SPEED_MULTIPLIER = RPBlocks.register(
             "primary_speed_multiplier",
             new CarpetBlock(AbstractBlock.Settings.create()
@@ -131,6 +220,15 @@ public class RPBlocks {
             ), true
     );
 
+    public static final Block UNLIMITED_BOOSTER = RPBlocks.register(
+            "unlimited_booster",
+            new UnlimitedBooster(AbstractBlock.Settings.create()
+                    .sounds(BlockSoundGroup.GLASS)
+                    .noCollision()
+                    .breakInstantly()
+            ), true
+    );
+
     public static final Block CONTROLLABLE_HORIZONTAL_BOOST_BLOCK = RPBlocks.register(
             "controllable_horizontal_booster",
             new ControllableHorizontalBoostBlock(AbstractBlock.Settings.create()
@@ -155,6 +253,17 @@ public class RPBlocks {
             ), true
     );
 
+    public static final Block JUMP_ENHANCER = RPBlocks.register(
+            "jump_enhancer",
+            new CarpetBlock(AbstractBlock.Settings.create()
+                    .sounds(BlockSoundGroup.SLIME)
+                    .nonOpaque()
+                    .breakInstantly()
+                    .jumpVelocityMultiplier(3.5f)
+            ), true
+    );
+
+    // 物流整理
     public static final Block ITEM_PACKER = RPBlocks.register(
             "item_packer",
             new ItemPackerBlock(AbstractBlock.Settings.create()
@@ -173,91 +282,20 @@ public class RPBlocks {
             ), true
     );
 
-    public static final Block JUMP_ENHANCER = RPBlocks.register(
-            "jump_enhancer",
-            new CarpetBlock(AbstractBlock.Settings.create()
-                    .sounds(BlockSoundGroup.SLIME)
-                    .nonOpaque()
-                    .breakInstantly()
-                    .jumpVelocityMultiplier(3.5f)
-            ), true
+    public static final Block ITEM_CALIBRATOR = RPBlocks.register(
+            "item_calibrator",
+            new ItemCalibrator(AbstractBlock.Settings.create()
+                    .sounds(BlockSoundGroup.STONE)
+                    .strength(0.8f)
+                    .noCollision()), true
     );
 
-    public static final Block PLAYER_TRANSPARENT_BLOCK = RPBlocks.register(
-            "player_transparent_block",
-            new SelectTransparentBlock(AbstractBlock.Settings.create()
-                    .sounds(BlockSoundGroup.GLASS)
-                    .nonOpaque()
-                    .strength(0.5f)
-                    .allowsSpawning(Blocks::never)
-                    .solidBlock(Blocks::never)
-                    .suffocates(Blocks::never)
-                    .blockVision(Blocks::never),
-                    PlayerEntity.class
-            ), true
-    );
-    public static final Block MOB_TRANSPARENT_BLOCK = RPBlocks.register(
-            "mob_transparent_block",
-            new SelectTransparentBlock(AbstractBlock.Settings.create()
-                    .sounds(BlockSoundGroup.GLASS)
-                    .nonOpaque()
-                    .strength(0.5f)
-                    .allowsSpawning(Blocks::never)
-                    .solidBlock(Blocks::never)
-                    .suffocates(Blocks::never)
-                    .blockVision(Blocks::never),
-                    MobEntity.class
-            ), true
-    );
-    public static final Block ITEM_TRANSPARENT_BLOCK = RPBlocks.register(
-            "item_transparent_block",
-            new SelectTransparentBlock(AbstractBlock.Settings.create()
-                    .sounds(BlockSoundGroup.GLASS)
-                    .nonOpaque()
-                    .strength(0.5f)
-                    .allowsSpawning(Blocks::never)
-                    .solidBlock(Blocks::never)
-                    .suffocates(Blocks::never)
-                    .blockVision(Blocks::never),
-                    ItemEntity.class
-            ), true
-    );
-
-    public static final Block CONTROLLABLE_TRANSPARENT_BLOCK = RPBlocks.register(
-            "controllable_transparent_block",
-            new ControllableTransparentBlock(AbstractBlock.Settings.create()
-                    .sounds(BlockSoundGroup.GLASS)
-                    .nonOpaque()
-                    .strength(0.5f)
-                    .allowsSpawning(Blocks::never)
-                    .solidBlock(Blocks::never)
-                    .suffocates(Blocks::never)
-                    .blockVision(Blocks::never)
-            ), true
-    );
-
-    public static final Block REVERSE_CONTROLLABLE_TRANSPARENT_BLOCK = RPBlocks.register(
-            "reverse_controllable_transparent_block",
-            new ReverseControllableTransparentBlock(AbstractBlock.Settings.create()
-                    .sounds(BlockSoundGroup.GLASS)
-                    .nonOpaque()
-                    .strength(0.5f)
-                    .allowsSpawning(Blocks::never)
-                    .solidBlock(Blocks::never)
-                    .suffocates(Blocks::never)
-                    .blockVision(Blocks::never)
-            ), true
-    );
-
-    public static final Block CONTROLLABLE_TRANSPARENT_STONE = RPBlocks.register(
-            "controllable_transparent_stone",
-            new ControllableTransparentBlock(AbstractBlock.Settings.create()
-                    .mapColor(MapColor.STONE_GRAY)
-                    .nonOpaque()
-                    .instrument(NoteBlockInstrument.BASEDRUM)
-                    .requiresTool()
-                    .strength(2.0f, 6.0f)
-            ), true
+    public static final Block ITEM_STEERING_GEAR = RPBlocks.register(
+            "item_steering_gear",
+            new ItemSteeringGear(AbstractBlock.Settings.create()
+                    .sounds(BlockSoundGroup.STONE)
+                    .strength(0.8f)
+                    .noCollision()), true
     );
 
     public static Block register(String path, Block block, boolean shouldRegisterItem) {

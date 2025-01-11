@@ -24,6 +24,7 @@ public class RedstoneProtocolClient implements ClientModInitializer {
                 RPBlocks.ADVANCED_SPEED_MULTIPLIER,
                 RPBlocks.ADVANCED_HORIZONTAL_BOOSTER,
                 RPBlocks.ADVANCED_VERTICAL_BOOSTER,
+                RPBlocks.UNLIMITED_BOOSTER,
 
                 RPBlocks.CONTROLLABLE_HORIZONTAL_BOOST_BLOCK,
                 RPBlocks.CONTROLLABLE_VERTICAL_BOOST_BLOCK,

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "multi_bench",
+  "key": {
+    "P": {
+      "item": "minecraft:piston"
+    },
+    "R": {
+      "item": "minecraft:powered_rail"
+    },
+    "S": {
+      "item": "minecraft:smooth_stone"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "PRP",
+    "SSS"
+  ],
+  "result": {
+    "count": 12,
+    "id": "redstone-protocol:item_steering_gear"
+  }
+}

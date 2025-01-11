@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "multi_bench",
+  "key": {
+    "B": {
+      "item": "minecraft:blue_ice"
+    },
+    "I": {
+      "item": "minecraft:iron_block"
+    }
+  },
+  "pattern": [
+    "BBB",
+    "BIB",
+    "BBB"
+  ],
+  "result": {
+    "count": 4,
+    "id": "redstone-protocol:ideal_orbit"
+  }
+}

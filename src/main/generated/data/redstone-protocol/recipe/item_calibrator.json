@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "multi_bench",
+  "key": {
+    "P": {
+      "item": "minecraft:piston"
+    },
+    "S": {
+      "item": "minecraft:smooth_stone"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "P P",
+    "SSS"
+  ],
+  "result": {
+    "count": 12,
+    "id": "redstone-protocol:item_calibrator"
+  }
+}
