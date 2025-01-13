@@ -284,7 +284,7 @@ public class RPBlocks {
 
     public static final Block ITEM_CALIBRATOR = RPBlocks.register(
             "item_calibrator",
-            new ItemCalibrator(AbstractBlock.Settings.create()
+            new ItemCalibratorBlock(AbstractBlock.Settings.create()
                     .sounds(BlockSoundGroup.STONE)
                     .strength(0.8f)
                     .noCollision()), true
@@ -292,10 +292,42 @@ public class RPBlocks {
 
     public static final Block ITEM_STEERING_GEAR = RPBlocks.register(
             "item_steering_gear",
-            new ItemSteeringGear(AbstractBlock.Settings.create()
+            new ItemSteeringGearBlock(AbstractBlock.Settings.create()
                     .sounds(BlockSoundGroup.STONE)
                     .strength(0.8f)
                     .noCollision()), true
+    );
+
+    public static final Block TRACTOR = RPBlocks.register(
+            "tractor",
+            new TractorBlock(AbstractBlock.Settings.create()
+                    .sounds(BlockSoundGroup.STONE)
+                    .strength(1.2f)
+                    .requiresTool()
+            ), true
+    );
+
+    public static final Block LASER_GENERATOR = RPBlocks.register(
+            "laser_generator",
+            new LaserGeneratorBlock(AbstractBlock.Settings.create()
+                    .sounds(BlockSoundGroup.STONE)
+                    .strength(1.2f)
+                    .requiresTool()
+            ), true
+    );
+
+    public static final Block TRACTOR_FORCE = RPBlocks.register(
+            "laser",
+            new LaserBlock(AbstractBlock.Settings.create()
+                    .sounds(BlockSoundGroup.GLASS)
+                    .dropsNothing()
+                    .nonOpaque()
+                    .noCollision()
+                    .strength(-1f, 100f)
+                    .solidBlock(Blocks::never)
+                    .suffocates(Blocks::never)
+                    .blockVision(Blocks::never)
+            ), false
     );
 
     public static Block register(String path, Block block, boolean shouldRegisterItem) {

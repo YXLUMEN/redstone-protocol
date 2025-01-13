@@ -247,5 +247,28 @@ public class BenchRecipes extends FabricRecipeProvider {
                 .input(Items.PISTON)
                 .criterion(FabricRecipeProvider.hasItem(RPBlocks.JUMP_ENHANCER), FabricRecipeProvider.conditionsFromItem(RPBlocks.JUMP_ENHANCER))
                 .offerTo(recipeExporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, RPBlocks.TRACTOR, 4)
+                .pattern("SVS")
+                .pattern("HRH")
+                .pattern("SVS")
+                .input('R', Items.REDSTONE_BLOCK)
+                .input('S', Items.SMOOTH_STONE)
+                .input('V', RPBlocks.CONTROLLABLE_VERTICAL_BOOST_BLOCK)
+                .input('H', RPBlocks.CONTROLLABLE_HORIZONTAL_BOOST_BLOCK)
+                .group("multi_bench")
+                .criterion(FabricRecipeProvider.hasItem(RPBlocks.TRACTOR), FabricRecipeProvider.conditionsFromItem(RPBlocks.TRACTOR))
+                .offerTo(recipeExporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, RPBlocks.LASER_GENERATOR, 4)
+                .pattern("SAS")
+                .pattern("ARA")
+                .pattern("SAS")
+                .input('S', Items.SMOOTH_STONE)
+                .input('R', Items.REDSTONE_LAMP)
+                .input('A', RPBlocks.ADVANCED_SPEED_MULTIPLIER)
+                .group("multi_bench")
+                .criterion(FabricRecipeProvider.hasItem(RPBlocks.LASER_GENERATOR), FabricRecipeProvider.conditionsFromItem(RPBlocks.LASER_GENERATOR))
+                .offerTo(recipeExporter);
     }
 }

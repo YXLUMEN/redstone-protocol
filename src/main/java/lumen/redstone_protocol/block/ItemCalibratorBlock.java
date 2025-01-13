@@ -7,8 +7,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
-public class ItemCalibrator extends CarpetBlock {
-    public ItemCalibrator(Settings settings) {
+public class ItemCalibratorBlock extends CarpetBlock {
+    public ItemCalibratorBlock(Settings settings) {
         super(settings);
     }
 

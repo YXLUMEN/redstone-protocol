@@ -31,5 +31,9 @@
   "block.redstone-protocol.item_calibrator": "item calibrator",
   "block.redstone-protocol.item_steering_gear": "Item steering gear",
 
+  "block.redstone-protocol.tractor": "Tractor",
+  "block.redstone-protocol.laser_generator": "Laser generator",
+  "block.redstone-protocol.laser": "Laser",
+
   "block.redstone-protocol.jump_enhancer": "Jump enhancer"
 }

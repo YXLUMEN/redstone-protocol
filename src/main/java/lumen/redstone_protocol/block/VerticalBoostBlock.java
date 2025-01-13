@@ -4,6 +4,7 @@ import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.TransparentBlock;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -19,8 +20,9 @@ public class VerticalBoostBlock extends TransparentBlock {
     @Override
     protected void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
         if (world.isClient) return;
-        if (entity.isSneaking()) return;
-        if (world.getTime() % 2 != 0) return;
+        if (entity instanceof PlayerEntity player) {
+            if (player.isSneaking() || player.getAbilities().flying) return;
+        }
 
         Vec3d currentVelocity = entity.getVelocity();
         entity.setVelocity(currentVelocity.x, this.verticalForce.y, currentVelocity.z);

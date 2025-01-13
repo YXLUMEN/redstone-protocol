@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "redstone-protocol:block/laser_block",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "redstone-protocol:block/laser_block"
+    },
+    "axis=z": {
+      "model": "redstone-protocol:block/laser_block",
+      "x": 90
+    }
+  }
+}

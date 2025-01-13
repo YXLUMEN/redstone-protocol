@@ -9,7 +9,8 @@ public class RedstoneProtocolClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getTranslucent(),
-                RPBlocks.LOW_FRICTION_GLASS
+                RPBlocks.LOW_FRICTION_GLASS,
+                RPBlocks.TRACTOR_FORCE
         );
 
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(),

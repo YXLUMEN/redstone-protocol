@@ -5,6 +5,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CarpetBlock;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.DirectionProperty;
@@ -28,7 +29,9 @@ public class HorizontalBoostBlock extends CarpetBlock {
     @Override
     protected void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
         if (world.isClient) return;
-        if (entity.isSneaking()) return;
+        if (entity instanceof PlayerEntity player) {
+            if (player.isSneaking() || player.getAbilities().flying) return;
+        }
 
         Vec3d horizontalForce = switch (state.get(HORIZONTAL_FACING)) {
             case SOUTH -> new Vec3d(0, 0, boostStrength);

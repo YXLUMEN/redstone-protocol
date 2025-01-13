@@ -43,5 +43,7 @@ public class BlockLootTables extends FabricBlockLootTableProvider {
         addDrop(RPBlocks.REVERSE_CONTROLLABLE_TRANSPARENT_BLOCK);
 
         addDrop(RPBlocks.CONTROLLABLE_TRANSPARENT_STONE);
+        addDrop(RPBlocks.TRACTOR);
+        addDrop(RPBlocks.LASER_GENERATOR);
     }
 }

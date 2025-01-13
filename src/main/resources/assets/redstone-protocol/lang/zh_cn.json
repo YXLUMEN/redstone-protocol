@@ -31,5 +31,9 @@
   "block.redstone-protocol.item_calibrator": "物品归中器",
   "block.redstone-protocol.item_steering_gear": "物品转向器",
 
+  "block.redstone-protocol.tractor": "牵引器",
+  "block.redstone-protocol.laser_generator": "镭射发生器",
+  "block.redstone-protocol.laser": "激光",
+
   "block.redstone-protocol.jump_enhancer": "跳跃增强器"
 }

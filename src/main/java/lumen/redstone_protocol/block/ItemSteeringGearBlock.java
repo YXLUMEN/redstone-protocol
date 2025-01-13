@@ -16,11 +16,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 
-public class ItemSteeringGear extends CarpetBlock {
+public class ItemSteeringGearBlock extends CarpetBlock {
     public static final DirectionProperty HORIZONTAL_FACING = Properties.HORIZONTAL_FACING;
     public static final DirectionProperty OUTPUT_FACING = DirectionProperty.of("output_facing", Direction.Type.HORIZONTAL);
 
-    public ItemSteeringGear(AbstractBlock.Settings settings) {
+    public ItemSteeringGearBlock(AbstractBlock.Settings settings) {
         super(settings);
         setDefaultState(this.stateManager.getDefaultState()
                 .with(HORIZONTAL_FACING, Direction.NORTH)
@@ -31,9 +31,9 @@ public class ItemSteeringGear extends CarpetBlock {
     protected void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
         if (entity.isSneaking()) return;
 
-        double newX = pos.getX() + 0.5f;
-        double newY = pos.getY();
-        double newZ = pos.getZ() + 0.5f;
+        int newX = pos.getX();
+        int newY = pos.getY();
+        int newZ = pos.getZ();
 
         switch (state.get(OUTPUT_FACING)) {
             case NORTH:
@@ -50,7 +50,7 @@ public class ItemSteeringGear extends CarpetBlock {
                 break;
         }
 
-        entity.setPosition(newX, newY, newZ);
+        entity.setPosition(newX + 0.5f, newY, newZ + 0.5f);
 
         super.onEntityCollision(state, world, pos, entity);
     }

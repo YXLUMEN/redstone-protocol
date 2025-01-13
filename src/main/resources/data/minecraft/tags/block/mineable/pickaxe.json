@@ -2,6 +2,8 @@
   "replace": false,
   "values": [
     "redstone-protocol:ideal_orbit",
-    "redstone-protocol:controllable_transparent_stone"
+    "redstone-protocol:controllable_transparent_stone",
+    "redstone-protocol:tractor",
+    "redstone-protocol:laser_generator"
   ]
 }

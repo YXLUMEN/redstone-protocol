@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "multi_bench",
+  "key": {
+    "H": {
+      "item": "redstone-protocol:controllable_horizontal_booster"
+    },
+    "R": {
+      "item": "minecraft:redstone_block"
+    },
+    "S": {
+      "item": "minecraft:smooth_stone"
+    },
+    "V": {
+      "item": "redstone-protocol:controllable_vertical_booster"
+    }
+  },
+  "pattern": [
+    "SVS",
+    "HRH",
+    "SVS"
+  ],
+  "result": {
+    "count": 4,
+    "id": "redstone-protocol:tractor"
+  }
+}
