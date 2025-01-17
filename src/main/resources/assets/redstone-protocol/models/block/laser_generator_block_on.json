@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "redstone-protocol:block/laser_generator_block_on"
+  }
+}

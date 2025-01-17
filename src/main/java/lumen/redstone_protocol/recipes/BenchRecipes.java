@@ -194,6 +194,28 @@ public class BenchRecipes extends FabricRecipeProvider {
                 .criterion(FabricRecipeProvider.hasItem(RPBlocks.UNLIMITED_BOOSTER), FabricRecipeProvider.conditionsFromItem(RPBlocks.UNLIMITED_BOOSTER))
                 .offerTo(recipeExporter);
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, RPBlocks.CONTROLLABLE_VERTICAL_BOOST_BLOCK, 1)
+                .pattern(" L ")
+                .pattern("RPR")
+                .pattern(" R ")
+                .input('P', RPBlocks.PRIMARY_VERTICAL_BOOSTER)
+                .input('R', Items.REDSTONE)
+                .input('L', Items.LEVER)
+                .group("multi_bench")
+                .criterion(FabricRecipeProvider.hasItem(RPBlocks.CONTROLLABLE_VERTICAL_BOOST_BLOCK), FabricRecipeProvider.conditionsFromItem(RPBlocks.CONTROLLABLE_VERTICAL_BOOST_BLOCK))
+                .offerTo(recipeExporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, RPBlocks.CONTROLLABLE_HORIZONTAL_BOOST_BLOCK, 1)
+                .pattern(" L ")
+                .pattern("RPR")
+                .pattern(" R ")
+                .input('P', RPBlocks.PRIMARY_HORIZONTAL_BOOSTER)
+                .input('R', Items.REDSTONE)
+                .input('L', Items.LEVER)
+                .group("multi_bench")
+                .criterion(FabricRecipeProvider.hasItem(RPBlocks.CONTROLLABLE_HORIZONTAL_BOOST_BLOCK), FabricRecipeProvider.conditionsFromItem(RPBlocks.CONTROLLABLE_HORIZONTAL_BOOST_BLOCK))
+                .offerTo(recipeExporter);
+
         // 物品封包机
         ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, RPBlocks.ITEM_PACKER, 12)
                 .pattern("PPP")

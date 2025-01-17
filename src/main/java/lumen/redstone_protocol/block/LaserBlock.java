@@ -1,18 +1,27 @@
 package lumen.redstone_protocol.block;
 
+import lumen.redstone_protocol.RPProperties;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.PillarBlock;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.particle.ParticleEffect;
+import net.minecraft.particle.ParticleTypes;
+import net.minecraft.state.StateManager;
+import net.minecraft.state.property.IntProperty;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
 public class LaserBlock extends PillarBlock {
+    public static final IntProperty LASER_MODE = RPProperties.LASER_MODE;
+
     protected static final VoxelShape Y_SHAPE = Block.createCuboidShape(4.0, 0.0, 4.0, 12.0, 16.0, 12.0);
     protected static final VoxelShape Z_SHAPE = Block.createCuboidShape(4.0, 4.0, 0.0, 12.0, 12.0, 16.0);
     protected static final VoxelShape X_SHAPE = Block.createCuboidShape(0.0, 4.0, 4.0, 16.0, 12.0, 12.0);
@@ -33,9 +42,64 @@ public class LaserBlock extends PillarBlock {
 
     @Override
     protected void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
-        if (entity instanceof LivingEntity livingEntity) {
-            livingEntity.damage(world.getDamageSources().generic(), 3f);
+        int mode = state.get(LASER_MODE);
+        if (world.isClient) {
+            if (world.getTime() % 4 == 0) spawnCollisionParticles(world, entity, getLaserParticle(mode));
+            return;
         }
+
+        applyLaserEffect(mode, world, entity);
         super.onEntityCollision(state, world, pos, entity);
+    }
+
+    private ParticleEffect getLaserParticle(int mode) {
+        return switch (mode) {
+            case 1 -> ParticleTypes.END_ROD;
+            case 2 -> ParticleTypes.FLAME;
+            case 3 -> ParticleTypes.PORTAL;
+            default -> ParticleTypes.CRIT;
+        };
+    }
+
+    private void applyLaserEffect(int mode, World world, Entity entity) {
+        if (mode == 0) {
+            if (entity instanceof LivingEntity livingEntity) {
+                livingEntity.damage(world.getDamageSources().generic(), 3f);
+            }
+            return;
+        }
+        switch (mode) {
+            case 1 -> entity.damage(world.getDamageSources().generic(), 3f);
+            case 2 -> entity.setOnFireFor(1);
+            case 3 -> entity.damage(world.getDamageSources().outOfWorld(), 3f);
+        }
+    }
+
+    private void spawnCollisionParticles(World world, Entity entity, ParticleEffect particle) {
+        Random random = world.getRandom();
+        double baseX = entity.getX();
+        double baseY = entity.getY() + 1;
+        double baseZ = entity.getZ();
+
+        final double spread = 0.4;
+        final double halfSpread = 0.2;
+
+        world.addParticle(particle,
+                baseX + (random.nextDouble() * spread - halfSpread),
+                baseY + (random.nextDouble() * spread - halfSpread),
+                baseZ + (random.nextDouble() * spread - halfSpread),
+                0.0, 0.0, 0.0
+        );
+    }
+
+
+    @Override
+    public BlockState getPlacementState(ItemPlacementContext ctx) {
+        return this.getDefaultState().with(AXIS, ctx.getSide().getAxis()).with(LASER_MODE, 0);
+    }
+
+    @Override
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+        builder.add(LASER_MODE).add(AXIS);
     }
 }

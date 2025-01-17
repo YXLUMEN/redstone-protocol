@@ -1,5 +1,6 @@
 package lumen.redstone_protocol.block;
 
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
@@ -11,16 +12,17 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 
+import java.util.HashMap;
+
 public class TractorBlock extends Block {
     private static final int RANGE = 8;
     private static final double PULL_STRENGTH = 0.03f;
     private static final int TICK_DELAY = 2;
     private static final Vec3d ZERO_Y = new Vec3d(1, 0, 1);
 
-    private Box searchBox;
-    private Vec3d cachedBlockCenter;
+    private static final HashMap<BlockPos, Box> SEARCH_BOX_MAP = new HashMap<>();
 
-    public TractorBlock(Settings settings) {
+    public TractorBlock(AbstractBlock.Settings settings) {
         super(settings);
     }
 
@@ -33,11 +35,10 @@ public class TractorBlock extends Block {
         }
     }
 
-    private void initializeSearchBox(BlockPos pos) {
-        if (searchBox == null) {
-            searchBox = new Box(pos).expand(RANGE);
-            cachedBlockCenter = Vec3d.ofCenter(pos, 0); // Cache the block center
-        }
+    @Override
+    public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
+        SEARCH_BOX_MAP.remove(pos);
+        super.onStateReplaced(state, world, pos, newState, moved);
     }
 
     @Override
@@ -45,16 +46,24 @@ public class TractorBlock extends Block {
         if (world.isReceivingRedstonePower(pos)) {
             moveEntities(world, pos);
             world.scheduleBlockTick(pos, this, TICK_DELAY);
-        } else {
-            searchBox = null;
+        }
+    }
+
+    private void initializeSearchBox(BlockPos pos) {
+        if (SEARCH_BOX_MAP.get(pos) == null) {
+            SEARCH_BOX_MAP.put(pos, new Box(pos).expand(RANGE));
         }
     }
 
     private void moveEntities(ServerWorld world, BlockPos pos) {
-        if (searchBox == null) initializeSearchBox(pos);
+        Box searchBox = SEARCH_BOX_MAP.get(pos);
+        if (searchBox == null) {
+            initializeSearchBox(pos);
+            return;
+        }
 
         world.getEntitiesByClass(Entity.class, searchBox, this::shouldAffectEntity)
-                .forEach(this::applyPullForce);
+                .forEach(entity -> this.applyPullForce(entity, pos));
     }
 
     private boolean shouldAffectEntity(Entity entity) {
@@ -64,9 +73,9 @@ public class TractorBlock extends Block {
         return true;
     }
 
-    private void applyPullForce(Entity entity) {
+    private void applyPullForce(Entity entity, BlockPos pos) {
         Vec3d entityPos = entity.getPos();
-        Vec3d pullVector = cachedBlockCenter.subtract(entityPos)
+        Vec3d pullVector = pos.toCenterPos().subtract(entityPos)
                 .multiply(ZERO_Y)
                 .normalize()
                 .multiply(PULL_STRENGTH);

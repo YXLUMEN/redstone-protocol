@@ -1,5 +1,6 @@
 package lumen.redstone_protocol.block;
 
+import lumen.redstone_protocol.RPProperties;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -18,7 +19,7 @@ import net.minecraft.world.World;
 
 public class ItemSteeringGearBlock extends CarpetBlock {
     public static final DirectionProperty HORIZONTAL_FACING = Properties.HORIZONTAL_FACING;
-    public static final DirectionProperty OUTPUT_FACING = DirectionProperty.of("output_facing", Direction.Type.HORIZONTAL);
+    public static final DirectionProperty OUTPUT_FACING = RPProperties.OUTPUT_FACING;
 
     public ItemSteeringGearBlock(AbstractBlock.Settings settings) {
         super(settings);

@@ -1,6 +1,7 @@
 package lumen.redstone_protocol;
 
 import lumen.redstone_protocol.block.RPBlocks;
+import lumen.redstone_protocol.block_entity.RPBlockEntities;
 import lumen.redstone_protocol.item.RPItems;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
@@ -34,5 +35,6 @@ public class RedstoneProtocol implements ModInitializer {
 
         RPItems.initialize();
         RPBlocks.initialize();
+        RPBlockEntities.initialize();
     }
 }

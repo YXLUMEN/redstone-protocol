@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "multi_bench",
+  "key": {
+    "L": {
+      "item": "minecraft:lever"
+    },
+    "P": {
+      "item": "redstone-protocol:primary_horizontal_booster"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "pattern": [
+    " L ",
+    "RPR",
+    " R "
+  ],
+  "result": {
+    "count": 1,
+    "id": "redstone-protocol:controllable_horizontal_booster"
+  }
+}

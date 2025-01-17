@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_controllable_horizontal_booster": {
+      "conditions": {
+        "items": [
+          {
+            "items": "redstone-protocol:controllable_horizontal_booster"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "redstone-protocol:controllable_horizontal_booster"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_controllable_horizontal_booster"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "redstone-protocol:controllable_horizontal_booster"
+    ]
+  }
+}
