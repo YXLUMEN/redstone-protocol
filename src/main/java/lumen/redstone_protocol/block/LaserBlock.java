@@ -10,6 +10,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.util.math.BlockPos;
@@ -44,7 +45,7 @@ public class LaserBlock extends PillarBlock {
     protected void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
         int mode = state.get(LASER_MODE);
         if (world.isClient) {
-            if (world.getTime() % 4 == 0) spawnCollisionParticles(world, entity, getLaserParticle(mode));
+            spawnCollisionParticles(world, entity, getLaserParticle(mode));
             return;
         }
 
@@ -57,21 +58,33 @@ public class LaserBlock extends PillarBlock {
             case 1 -> ParticleTypes.END_ROD;
             case 2 -> ParticleTypes.FLAME;
             case 3 -> ParticleTypes.PORTAL;
+            case 4 -> ParticleTypes.CAMPFIRE_COSY_SMOKE;
             default -> ParticleTypes.CRIT;
         };
     }
 
     private void applyLaserEffect(int mode, World world, Entity entity) {
-        if (mode == 0) {
-            if (entity instanceof LivingEntity livingEntity) {
-                livingEntity.damage(world.getDamageSources().generic(), 3f);
-            }
-            return;
-        }
         switch (mode) {
+            case 0 -> {
+                if ((entity instanceof LivingEntity livingEntity)) {
+                    livingEntity.damage(world.getDamageSources().generic(), 3f);
+                }
+            }
             case 1 -> entity.damage(world.getDamageSources().generic(), 3f);
-            case 2 -> entity.setOnFireFor(1);
+            case 2 -> {
+                int fireTicks = Math.max(entity.getFireTicks(), 10);
+                if (fireTicks <= 120) entity.setOnFireForTicks(fireTicks + 20);
+            }
             case 3 -> entity.damage(world.getDamageSources().outOfWorld(), 3f);
+            case 4 -> {
+                if ((entity instanceof LivingEntity livingEntity)) {
+                    livingEntity.setHealth(livingEntity.getHealth() - livingEntity.getMaxHealth() * 0.1f);
+                    if (livingEntity.isDead()) {
+                        livingEntity.playSound(SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT);
+                        livingEntity.onDeath(world.getDamageSources().generic());
+                    }
+                }
+            }
         }
     }
 
@@ -91,7 +104,6 @@ public class LaserBlock extends PillarBlock {
                 0.0, 0.0, 0.0
         );
     }
-
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {

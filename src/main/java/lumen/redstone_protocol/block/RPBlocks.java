@@ -36,7 +36,7 @@ public class RPBlocks {
                     .strength(1.2f)
                     .requiresTool()
                     .slipperiness(0.999f)
-                    .velocityMultiplier(1.1f)
+                    .velocityMultiplier(1.005f)
             ),
             true
     );
@@ -268,7 +268,7 @@ public class RPBlocks {
             "item_packer",
             new ItemPackerBlock(AbstractBlock.Settings.create()
                     .sounds(BlockSoundGroup.STONE)
-                    .strength(0.8f)
+                    .strength(0.6f)
                     .noCollision()
             ), true
     );
@@ -277,7 +277,7 @@ public class RPBlocks {
             "item_unpacker",
             new ItemUnpackerBlock(AbstractBlock.Settings.create()
                     .sounds(BlockSoundGroup.STONE)
-                    .strength(0.8f)
+                    .strength(0.6f)
                     .noCollision()
             ), true
     );
@@ -286,7 +286,7 @@ public class RPBlocks {
             "item_calibrator",
             new ItemCalibratorBlock(AbstractBlock.Settings.create()
                     .sounds(BlockSoundGroup.STONE)
-                    .strength(0.8f)
+                    .strength(0.6f)
                     .noCollision()), true
     );
 
@@ -294,7 +294,15 @@ public class RPBlocks {
             "item_steering_gear",
             new ItemSteeringGearBlock(AbstractBlock.Settings.create()
                     .sounds(BlockSoundGroup.STONE)
-                    .strength(0.8f)
+                    .strength(0.6f)
+                    .noCollision()), true
+    );
+
+    public static final Block ITEM_RESTARTING = RPBlocks.register(
+            "item_restarting",
+            new ItemRestartingBlock(AbstractBlock.Settings.create()
+                    .sounds(BlockSoundGroup.STONE)
+                    .strength(0.6f)
                     .noCollision()), true
     );
 

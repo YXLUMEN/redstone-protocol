@@ -263,6 +263,17 @@ public class BenchRecipes extends FabricRecipeProvider {
                 .criterion(FabricRecipeProvider.hasItem(RPBlocks.ITEM_STEERING_GEAR), FabricRecipeProvider.conditionsFromItem(RPBlocks.ITEM_STEERING_GEAR))
                 .offerTo(recipeExporter);
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, RPBlocks.ITEM_RESTARTING, 12)
+                .pattern("SSS")
+                .pattern("RDR")
+                .pattern("SSS")
+                .input('S', Items.SMOOTH_STONE)
+                .input('D', Items.DROPPER)
+                .input('R', Items.REDSTONE)
+                .group("multi_bench")
+                .criterion(FabricRecipeProvider.hasItem(RPBlocks.ITEM_RESTARTING), FabricRecipeProvider.conditionsFromItem(RPBlocks.ITEM_RESTARTING))
+                .offerTo(recipeExporter);
+
         // 跳跃增强器
         ShapelessRecipeJsonBuilder.create(RecipeCategory.REDSTONE, RPBlocks.JUMP_ENHANCER, 4)
                 .input(Items.SLIME_BLOCK)

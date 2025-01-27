@@ -34,6 +34,7 @@ public class BlockLootTables extends FabricBlockLootTableProvider {
         addDrop(RPBlocks.ITEM_UNPACKER);
         addDrop(RPBlocks.ITEM_CALIBRATOR);
         addDrop(RPBlocks.ITEM_STEERING_GEAR);
+        addDrop(RPBlocks.ITEM_RESTARTING);
         addDrop(RPBlocks.JUMP_ENHANCER);
 
         addDrop(RPBlocks.PLAYER_TRANSPARENT_BLOCK);

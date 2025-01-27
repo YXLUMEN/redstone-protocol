@@ -30,6 +30,7 @@
   "block.redstone-protocol.item_unpacker": "物品解包器",
   "block.redstone-protocol.item_calibrator": "物品归中器",
   "block.redstone-protocol.item_steering_gear": "物品转向器",
+  "block.redstone-protocol.item_restarting": "物品重投器",
 
   "block.redstone-protocol.tractor": "牵引器",
   "block.redstone-protocol.laser_generator": "镭射发生器",

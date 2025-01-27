@@ -11,7 +11,10 @@ import net.minecraft.util.Identifier;
 
 public class RPBlockEntities {
     public static final BlockEntityType<LaserGenEntity> LASER_GEN_ENTITY = register(
-            "laser_upgrade", LaserGenEntity::new, RPBlocks.LASER_GENERATOR);
+            "laser_generator", LaserGenEntity::new, RPBlocks.LASER_GENERATOR);
+
+    public static final BlockEntityType<TractorBlockEntity> TRACTOR_ENTITY = register(
+            "tractor", TractorBlockEntity::new, RPBlocks.TRACTOR);
 
 
     private static <T extends BlockEntity> BlockEntityType<T> register(

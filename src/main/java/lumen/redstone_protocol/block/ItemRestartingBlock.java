@@ -7,15 +7,15 @@ import net.minecraft.entity.ItemEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class ItemPackerBlock extends CarpetBlock {
-    public ItemPackerBlock(Settings settings) {
+public class ItemRestartingBlock extends CarpetBlock {
+    public ItemRestartingBlock(Settings settings) {
         super(settings);
     }
 
     @Override
     protected void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
         if (entity instanceof ItemEntity item) {
-            if (item.addCommandTag("rp_packed")) item.setPickupDelayInfinite();
+            item.age = 0;
         }
         super.onEntityCollision(state, world, pos, entity);
     }

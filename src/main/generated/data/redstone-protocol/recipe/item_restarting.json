@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "multi_bench",
+  "key": {
+    "D": {
+      "item": "minecraft:dropper"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "S": {
+      "item": "minecraft:smooth_stone"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "RDR",
+    "SSS"
+  ],
+  "result": {
+    "count": 12,
+    "id": "redstone-protocol:item_restarting"
+  }
+}

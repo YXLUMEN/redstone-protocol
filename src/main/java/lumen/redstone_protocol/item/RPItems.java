@@ -43,6 +43,7 @@ public class RPItems {
             itemGroup.add(RPBlocks.ITEM_UNPACKER.asItem());
             itemGroup.add(RPBlocks.ITEM_CALIBRATOR.asItem());
             itemGroup.add(RPBlocks.ITEM_STEERING_GEAR.asItem());
+            itemGroup.add(RPBlocks.ITEM_RESTARTING.asItem());
             itemGroup.add(RPBlocks.JUMP_ENHANCER.asItem());
 
             itemGroup.add(RPBlocks.TRACTOR.asItem());

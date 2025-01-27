@@ -1,0 +1,7 @@
+{
+  "parent": "redstone-protocol:block/tablet_device",
+  "textures": {
+    "glass": "minecraft:block/smooth_stone",
+    "grade": "redstone-protocol:block/item_restarting"
+  }
+}

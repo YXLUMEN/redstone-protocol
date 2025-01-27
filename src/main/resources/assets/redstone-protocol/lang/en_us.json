@@ -30,6 +30,7 @@
   "block.redstone-protocol.item_unpacker": "Item unpacker",
   "block.redstone-protocol.item_calibrator": "item calibrator",
   "block.redstone-protocol.item_steering_gear": "Item steering gear",
+  "block.redstone-protocol.item_restarting": "Item restarting",
 
   "block.redstone-protocol.tractor": "Tractor",
   "block.redstone-protocol.laser_generator": "Laser generator",

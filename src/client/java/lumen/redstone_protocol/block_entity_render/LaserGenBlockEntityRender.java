@@ -11,53 +11,48 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.RotationAxis;
 
 public class LaserGenBlockEntityRender implements BlockEntityRenderer<LaserGenEntity> {
+    public static final float TEXT_SCALE = 0.06f;
+
     private final TextRenderer textRenderer;
 
     public LaserGenBlockEntityRender(BlockEntityRendererFactory.Context context) {
         textRenderer = context.getTextRenderer();
         if (textRenderer == null) {
-            throw new NullPointerException("TextRenderer is null");
+            throw new NullPointerException("Can't get TextRenderer for LaserGenBlock!");
         }
     }
 
     @Override
-    public void render(LaserGenEntity entity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
-        if (entity == null) return;
-
+    public void render(LaserGenEntity laserGenEntity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
         MinecraftClient client = MinecraftClient.getInstance();
         if (client.player == null) return;
 
         // Check if player is looking at this block
-        if (!(client.crosshairTarget instanceof BlockHitResult blockHit) || !entity.getPos().equals(blockHit.getBlockPos())) {
+        if (!(client.crosshairTarget instanceof BlockHitResult blockHit) || !laserGenEntity.getPos().equals(blockHit.getBlockPos())) {
             return;
         }
 
+        String text = String.valueOf(laserGenEntity.getCurrentMode());
+        int textWidth = textRenderer.getWidth(text);
+
         matrices.push();
-        try {
-            matrices.translate(0.5, 1, 0.5);
-            matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(90));
+        matrices.translate(0.5, 1.05f, 0.5);
+        matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(90));
+        matrices.scale(TEXT_SCALE, TEXT_SCALE, TEXT_SCALE);
 
-            float scale = 0.06f;
-            matrices.scale(scale, scale, scale);
-
-            String text = String.valueOf(entity.getCurrentMode());
-            int textWidth = textRenderer.getWidth(text);
-
-            textRenderer.draw(
-                    text,
-                    -textWidth / 2f + 0.5f,
-                    -3.5f,
-                    0xffffff,
-                    false,
-                    matrices.peek().getPositionMatrix(),
-                    vertexConsumers,
-                    TextRenderer.TextLayerType.SEE_THROUGH,
-                    0,
-                    light
-            );
-        } finally {
-            matrices.pop();
-        }
+        textRenderer.draw(
+                text,
+                -textWidth / 2f,
+                -4f,
+                0xffffff,
+                false,
+                matrices.peek().getPositionMatrix(),
+                vertexConsumers,
+                TextRenderer.TextLayerType.SEE_THROUGH,
+                0,
+                light
+        );
+        matrices.pop();
     }
 
     @Override

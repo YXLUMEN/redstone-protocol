@@ -24,6 +24,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class LaserGeneratorBlock extends BlockWithEntity {
+    public static final MapCodec<LaserGeneratorBlock> CODEC = createCodec(LaserGeneratorBlock::new);
     public static final BooleanProperty POWERED = Properties.POWERED;
 
     private static final int RANGE = 15;
@@ -35,7 +36,7 @@ public class LaserGeneratorBlock extends BlockWithEntity {
 
     @Override
     protected MapCodec<? extends BlockWithEntity> getCodec() {
-        return createCodec(LaserGeneratorBlock::new);
+        return CODEC;
     }
 
     @Override
@@ -97,7 +98,7 @@ public class LaserGeneratorBlock extends BlockWithEntity {
 
             BlockState state = world.getBlockState(currentPos);
             if (state.isOf(this)) return currentPos.toImmutable();
-            if (!state.isAir()) return null;
+            if (!state.isReplaceable()) return null;
         }
         return null;
     }
@@ -109,7 +110,7 @@ public class LaserGeneratorBlock extends BlockWithEntity {
                 .with(RPProperties.LASER_MODE, mode);
 
         List<BlockPos> positions = BlockPos.stream(startPos, endPos)
-                .filter(pos -> world.getBlockState(pos).isAir())
+                .filter(pos -> world.getBlockState(pos).isReplaceable())
                 .map(BlockPos::toImmutable)
                 .toList();
 
@@ -117,7 +118,7 @@ public class LaserGeneratorBlock extends BlockWithEntity {
     }
 
     // 检查并摧毁"激光"
-    private void checkAndClear(ServerWorld world, BlockPos pos) {
+    public static void checkAndClear(ServerWorld world, BlockPos pos) {
         for (Direction direction : DIRECTIONS) {
             BlockPos.Mutable checkPos = new BlockPos.Mutable().set(pos);
 
