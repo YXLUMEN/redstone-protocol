@@ -44,7 +44,7 @@ public class LaserBlock extends PillarBlock {
     @Override
     protected void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
         int mode = state.get(LASER_MODE);
-        if (world.isClient) {
+        if (world.isClient && world.getTime() % 3 == 0) {
             spawnCollisionParticles(world, entity, getLaserParticle(mode));
             return;
         }

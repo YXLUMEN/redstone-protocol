@@ -25,10 +25,10 @@ public class TractorBlock extends BlockWithEntity {
     public static final MapCodec<TractorBlock> CODEC = createCodec(TractorBlock::new);
     public static final BooleanProperty POWERED = Properties.POWERED;
 
-    private static final int RANGE = 8;
-    private static final double PULL_STRENGTH = 0.03f;
-    private static final Vec3d ZERO_Y = new Vec3d(1, 0.1, 1);
-    private static final int TICK_DELAY = 2;
+    public static final int RANGE = 8;
+    public static final double PULL_STRENGTH = 0.03f;
+    public static final Vec3d ZERO_Y = new Vec3d(1, 0.1, 1);
+    public static final short TICK_DELAY = 1;
 
     public TractorBlock(Settings settings) {
         super(settings);
@@ -60,11 +60,11 @@ public class TractorBlock extends BlockWithEntity {
     @Override
     public void neighborUpdate(BlockState state, World world, BlockPos pos, Block block, BlockPos fromPos, boolean notify) {
         if (world.isClient) return;
+
         boolean powered = state.get(POWERED);
-
         if (powered == world.isReceivingRedstonePower(pos)) return;
-
         if (!powered) world.scheduleBlockTick(pos, this, TICK_DELAY);
+
         world.setBlockState(pos, state.cycle(POWERED), Block.NOTIFY_LISTENERS);
     }
 

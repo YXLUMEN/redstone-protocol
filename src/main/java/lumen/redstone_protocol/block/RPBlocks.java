@@ -36,7 +36,7 @@ public class RPBlocks {
                     .strength(1.2f)
                     .requiresTool()
                     .slipperiness(0.999f)
-                    .velocityMultiplier(1.005f)
+                    .velocityMultiplier(1.01f)
             ),
             true
     );
