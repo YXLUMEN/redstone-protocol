@@ -28,7 +28,7 @@ public class LaserGenEntity extends BlockEntity {
     @Override
     public NbtCompound toInitialChunkDataNbt(RegistryWrapper.WrapperLookup registryLookup) {
         NbtCompound nbtCompound = new NbtCompound();
-        nbtCompound.putInt("currentMode", this.currentMode);
+        nbtCompound.putShort("currentMode", this.currentMode);
         return nbtCompound;
     }
 

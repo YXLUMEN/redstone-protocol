@@ -16,6 +16,10 @@ public class RPBlockEntities {
     public static final BlockEntityType<TractorBlockEntity> TRACTOR_ENTITY = register(
             "tractor", TractorBlockEntity::new, RPBlocks.TRACTOR);
 
+    public static final BlockEntityType<ActiveDefenseBlockEntity> ACTIVE_DEFENSE_BLOCK_ENTITY = register(
+            "active_defense", ActiveDefenseBlockEntity::new, RPBlocks.ACTIVE_DEFENSE
+    );
+
 
     private static <T extends BlockEntity> BlockEntityType<T> register(
             String name,

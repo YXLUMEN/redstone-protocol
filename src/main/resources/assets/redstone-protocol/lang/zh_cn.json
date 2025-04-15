@@ -36,5 +36,6 @@
   "block.redstone-protocol.laser_generator": "镭射发生器",
   "block.redstone-protocol.laser": "激光",
 
-  "block.redstone-protocol.jump_enhancer": "跳跃增强器"
+  "block.redstone-protocol.jump_enhancer": "跳跃增强器",
+  "block.redstone-protocol.active_defense": "主动防御系统"
 }

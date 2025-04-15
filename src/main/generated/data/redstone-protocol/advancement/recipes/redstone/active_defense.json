@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_active_defense": {
+      "conditions": {
+        "items": [
+          {
+            "items": "redstone-protocol:active_defense"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "redstone-protocol:active_defense"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_active_defense"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "redstone-protocol:active_defense"
+    ]
+  }
+}

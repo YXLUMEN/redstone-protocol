@@ -36,7 +36,7 @@ public class RPBlocks {
                     .strength(1.2f)
                     .requiresTool()
                     .slipperiness(0.999f)
-                    .velocityMultiplier(1.01f)
+                    .velocityMultiplier(1.05f)
             ),
             true
     );
@@ -336,6 +336,15 @@ public class RPBlocks {
                     .suffocates(Blocks::never)
                     .blockVision(Blocks::never)
             ), false
+    );
+
+    public static final Block ACTIVE_DEFENSE = RPBlocks.register(
+            "active_defense",
+            new ActiveDefenseBlock(AbstractBlock.Settings.create()
+                    .sounds(BlockSoundGroup.METAL)
+                    .strength(1.2f)
+                    .requiresTool()
+            ), true
     );
 
     public static Block register(String path, Block block, boolean shouldRegisterItem) {

@@ -90,7 +90,8 @@ public class LaserGeneratorBlock extends BlockWithEntity {
      *
      * @return 只会返回 LaserGeneratorBlock位置 或 null.
      */
-    private @Nullable BlockPos findEndPos(ServerWorld world, BlockPos startPos, Direction direction) {
+    @Nullable
+    private BlockPos findEndPos(ServerWorld world, BlockPos startPos, Direction direction) {
         BlockPos.Mutable currentPos = new BlockPos.Mutable().set(startPos);
 
         for (int i = 0; i < RANGE; i++) {

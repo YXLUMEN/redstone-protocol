@@ -15,7 +15,7 @@ public class ItemRestartingBlock extends CarpetBlock {
     @Override
     protected void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
         if (entity instanceof ItemEntity item) {
-            item.age = 0;
+            if (item.getItemAge() > 20) item.age = 0;
         }
         super.onEntityCollision(state, world, pos, entity);
     }

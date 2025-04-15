@@ -36,5 +36,6 @@
   "block.redstone-protocol.laser_generator": "Laser generator",
   "block.redstone-protocol.laser": "Laser",
 
-  "block.redstone-protocol.jump_enhancer": "Jump enhancer"
+  "block.redstone-protocol.jump_enhancer": "Jump enhancer",
+  "block.redstone-protocol.active_defense": "Active Defense"
 }

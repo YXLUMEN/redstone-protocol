@@ -16,8 +16,8 @@ public class LaserGenBlockEntityRender implements BlockEntityRenderer<LaserGenEn
     private final TextRenderer textRenderer;
 
     public LaserGenBlockEntityRender(BlockEntityRendererFactory.Context context) {
-        textRenderer = context.getTextRenderer();
-        if (textRenderer == null) {
+        this.textRenderer = context.getTextRenderer();
+        if (this.textRenderer == null) {
             throw new NullPointerException("Can't get TextRenderer for LaserGenBlock!");
         }
     }
@@ -33,14 +33,14 @@ public class LaserGenBlockEntityRender implements BlockEntityRenderer<LaserGenEn
         }
 
         String text = String.valueOf(laserGenEntity.getCurrentMode());
-        int textWidth = textRenderer.getWidth(text);
+        int textWidth = this.textRenderer.getWidth(text);
 
         matrices.push();
         matrices.translate(0.5, 1.05f, 0.5);
         matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(90));
         matrices.scale(TEXT_SCALE, TEXT_SCALE, TEXT_SCALE);
 
-        textRenderer.draw(
+        this.textRenderer.draw(
                 text,
                 -textWidth / 2f,
                 -4f,

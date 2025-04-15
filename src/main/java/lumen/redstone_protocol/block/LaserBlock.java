@@ -80,7 +80,7 @@ public class LaserBlock extends PillarBlock {
                 if ((entity instanceof LivingEntity livingEntity)) {
                     livingEntity.setHealth(livingEntity.getHealth() - livingEntity.getMaxHealth() * 0.1f);
                     if (livingEntity.isDead()) {
-                        livingEntity.playSound(SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT);
+                        livingEntity.playSoundIfNotSilent(SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT);
                         livingEntity.onDeath(world.getDamageSources().generic());
                     }
                 }
