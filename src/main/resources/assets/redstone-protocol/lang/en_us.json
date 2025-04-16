@@ -37,5 +37,6 @@
   "block.redstone-protocol.laser": "Laser",
 
   "block.redstone-protocol.jump_enhancer": "Jump enhancer",
-  "block.redstone-protocol.active_defense": "Active Defense"
+  "block.redstone-protocol.active_defense": "Active Defense",
+  "block.redstone-protocol.projectile_reducer": "Projectile Reducer"
 }

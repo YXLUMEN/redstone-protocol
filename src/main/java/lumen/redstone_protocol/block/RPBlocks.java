@@ -342,10 +342,24 @@ public class RPBlocks {
             "active_defense",
             new ActiveDefenseBlock(AbstractBlock.Settings.create()
                     .sounds(BlockSoundGroup.METAL)
+                    .nonOpaque()
                     .strength(1.2f)
                     .requiresTool()
+                    .suffocates(Blocks::never)
+                    .blockVision(Blocks::never)
             ), true
     );
+
+    public static final Block PROJECTILE_REDUCER_BLOCK = RPBlocks.register(
+            "projectile_reducer",
+            new ProjectileReducerBlock(AbstractBlock.Settings.create()
+                    .nonOpaque()
+                    .sounds(BlockSoundGroup.METAL)
+                    .strength(1.2f)
+                    .requiresTool()
+                    .suffocates(Blocks::never)
+                    .blockVision(Blocks::never)
+            ), true);
 
     public static Block register(String path, Block block, boolean shouldRegisterItem) {
         Identifier id = Identifier.of(RedstoneProtocol.MOD_ID, path);

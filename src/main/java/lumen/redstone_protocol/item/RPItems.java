@@ -49,6 +49,7 @@ public class RPItems {
             itemGroup.add(RPBlocks.TRACTOR.asItem());
             itemGroup.add(RPBlocks.LASER_GENERATOR.asItem());
             itemGroup.add(RPBlocks.ACTIVE_DEFENSE.asItem());
+            itemGroup.add(RPBlocks.PROJECTILE_REDUCER_BLOCK.asItem());
         });
     }
 

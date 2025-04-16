@@ -4,6 +4,8 @@
     "redstone-protocol:ideal_orbit",
     "redstone-protocol:controllable_transparent_stone",
     "redstone-protocol:tractor",
-    "redstone-protocol:laser_generator"
+    "redstone-protocol:laser_generator",
+    "redstone-protocol:active_defense",
+    "redstone-protocol:projectile_reducer"
   ]
 }

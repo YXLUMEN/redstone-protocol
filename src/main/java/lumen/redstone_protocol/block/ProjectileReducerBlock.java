@@ -1,7 +1,7 @@
 package lumen.redstone_protocol.block;
 
 import com.mojang.serialization.MapCodec;
-import lumen.redstone_protocol.block_entity.ActiveDefenseBlockEntity;
+import lumen.redstone_protocol.block_entity.ProjectileReducerBlockEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
@@ -17,11 +17,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class ActiveDefenseBlock extends BlockWithEntity {
-    public static final MapCodec<ActiveDefenseBlock> CODEC = createCodec(ActiveDefenseBlock::new);
+public class ProjectileReducerBlock extends BlockWithEntity {
+    public static final MapCodec<ProjectileReducerBlock> CODEC = createCodec(ProjectileReducerBlock::new);
     public static final BooleanProperty POWERED = Properties.POWERED;
 
-    public ActiveDefenseBlock(Settings settings) {
+    public ProjectileReducerBlock(Settings settings) {
         super(settings);
     }
 
@@ -35,20 +35,18 @@ public class ActiveDefenseBlock extends BlockWithEntity {
         return BlockRenderType.MODEL;
     }
 
-    @Nullable
     @Override
-    public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return new ActiveDefenseBlockEntity(pos, state);
+    public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+        return new ProjectileReducerBlockEntity(pos, state);
     }
 
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
         if (!state.get(POWERED)) return null;
-
         return (worldIn, pos, stateIn, blockEntity) -> {
-            if (blockEntity instanceof ActiveDefenseBlockEntity adsBlockEntity) {
-                adsBlockEntity.tick();
+            if (blockEntity instanceof ProjectileReducerBlockEntity pRBlockEntity) {
+                pRBlockEntity.tick();
             }
         };
     }
