@@ -325,5 +325,16 @@ public class BenchRecipes extends FabricRecipeProvider {
                 .group("multi_bench")
                 .criterion(FabricRecipeProvider.hasItem(RPBlocks.RESTRAINING_FORCE_BLOCK), FabricRecipeProvider.conditionsFromItem(RPBlocks.RESTRAINING_FORCE_BLOCK))
                 .offerTo(recipeExporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, RPBlocks.BIOLOGICAL_FIELD, 1)
+                .pattern("IAI")
+                .pattern("AEA")
+                .pattern("IAI")
+                .input('I', Items.IRON_BLOCK)
+                .input('A', Items.GOLDEN_APPLE)
+                .input('E', Items.ENCHANTED_GOLDEN_APPLE)
+                .group("multi_bench")
+                .criterion(FabricRecipeProvider.hasItem(RPBlocks.BIOLOGICAL_FIELD), FabricRecipeProvider.conditionsFromItem(RPBlocks.BIOLOGICAL_FIELD))
+                .offerTo(recipeExporter);
     }
 }

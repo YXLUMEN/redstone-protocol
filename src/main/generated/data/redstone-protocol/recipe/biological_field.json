@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "multi_bench",
+  "key": {
+    "A": {
+      "item": "minecraft:golden_apple"
+    },
+    "E": {
+      "item": "minecraft:enchanted_golden_apple"
+    },
+    "I": {
+      "item": "minecraft:iron_block"
+    }
+  },
+  "pattern": [
+    "IAI",
+    "AEA",
+    "IAI"
+  ],
+  "result": {
+    "count": 1,
+    "id": "redstone-protocol:biological_field"
+  }
+}
