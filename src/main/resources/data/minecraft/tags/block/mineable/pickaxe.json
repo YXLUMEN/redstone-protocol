@@ -6,6 +6,6 @@
     "redstone-protocol:tractor",
     "redstone-protocol:laser_generator",
     "redstone-protocol:active_defense",
-    "redstone-protocol:projectile_reducer"
+    "redstone-protocol:restraining_force_field"
   ]
 }

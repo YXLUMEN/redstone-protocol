@@ -3,23 +3,23 @@
   "category": "redstone",
   "group": "multi_bench",
   "key": {
-    "G": {
-      "item": "minecraft:glass"
+    "A": {
+      "item": "redstone-protocol:advanced_horizontal_booster"
     },
     "I": {
       "item": "minecraft:iron_block"
     },
-    "L": {
-      "item": "redstone-protocol:laser_generator"
+    "R": {
+      "item": "minecraft:redstone"
     }
   },
   "pattern": [
-    "IGI",
-    "GLG",
-    "IGI"
+    "IAI",
+    "ARA",
+    "IAI"
   ],
   "result": {
     "count": 1,
-    "id": "redstone-protocol:active_defense"
+    "id": "redstone-protocol:restraining_force_field"
   }
 }

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_restraining_force_field": {
+      "conditions": {
+        "items": [
+          {
+            "items": "redstone-protocol:restraining_force_field"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "redstone-protocol:restraining_force_field"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_restraining_force_field"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "redstone-protocol:restraining_force_field"
+    ]
+  }
+}

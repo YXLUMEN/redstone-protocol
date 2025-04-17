@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "redstone-protocol:projectile_reducer"
+          "name": "redstone-protocol:restraining_force_field"
         }
       ],
       "rolls": 1.0

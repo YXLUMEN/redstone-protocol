@@ -3,6 +3,7 @@
   "package": "lumen.redstone_protocol.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "BiologicalFieldProtect",
     "PersistentProjectileEntityAccessor"
   ],
   "injectors": {

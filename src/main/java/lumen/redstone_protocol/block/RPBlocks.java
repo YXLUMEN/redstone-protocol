@@ -350,16 +350,21 @@ public class RPBlocks {
             ), true
     );
 
-    public static final Block PROJECTILE_REDUCER_BLOCK = RPBlocks.register(
-            "projectile_reducer",
-            new ProjectileReducerBlock(AbstractBlock.Settings.create()
-                    .nonOpaque()
+    public static final Block RESTRAINING_FORCE_BLOCK = RPBlocks.register(
+            "restraining_force_field",
+            new RestrainingForceBlock(AbstractBlock.Settings.create()
                     .sounds(BlockSoundGroup.METAL)
                     .strength(1.2f)
                     .requiresTool()
-                    .suffocates(Blocks::never)
-                    .blockVision(Blocks::never)
             ), true);
+
+    public static final Block BIOLOGICAL_FIELD = RPBlocks.register(
+            "biological_field",
+            new BiologicalFieldBlock(AbstractBlock.Settings.create()
+                    .sounds(BlockSoundGroup.GLASS)
+                    .strength(1.2f,20.0f)
+                    ), true
+    );
 
     public static Block register(String path, Block block, boolean shouldRegisterItem) {
         Identifier id = Identifier.of(RedstoneProtocol.MOD_ID, path);

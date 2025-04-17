@@ -38,5 +38,6 @@
 
   "block.redstone-protocol.jump_enhancer": "Jump enhancer",
   "block.redstone-protocol.active_defense": "Active Defense",
-  "block.redstone-protocol.projectile_reducer": "Projectile Reducer"
+  "block.redstone-protocol.restraining_force_field": "Restraining Force Field",
+  "block.redstone-protocol.biological_field": "BiologicalField"
 }

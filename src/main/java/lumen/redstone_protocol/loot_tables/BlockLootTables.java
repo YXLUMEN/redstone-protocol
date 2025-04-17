@@ -47,6 +47,7 @@ public class BlockLootTables extends FabricBlockLootTableProvider {
         addDrop(RPBlocks.TRACTOR);
         addDrop(RPBlocks.LASER_GENERATOR);
         addDrop(RPBlocks.ACTIVE_DEFENSE);
-        addDrop(RPBlocks.PROJECTILE_REDUCER_BLOCK);
+        addDrop(RPBlocks.RESTRAINING_FORCE_BLOCK);
+        addDrop(RPBlocks.BIOLOGICAL_FIELD);
     }
 }

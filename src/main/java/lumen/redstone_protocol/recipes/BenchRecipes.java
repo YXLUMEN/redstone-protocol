@@ -306,13 +306,24 @@ public class BenchRecipes extends FabricRecipeProvider {
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, RPBlocks.ACTIVE_DEFENSE, 1)
                 .pattern("IGI")
-                .pattern("GBG")
+                .pattern("GLG")
                 .pattern("IGI")
                 .input('I', Items.IRON_BLOCK)
-                .input('B', Items.BEACON)
+                .input('L', RPBlocks.LASER_GENERATOR)
                 .input('G', Items.GLASS)
                 .group("multi_bench")
                 .criterion(FabricRecipeProvider.hasItem(RPBlocks.ACTIVE_DEFENSE), FabricRecipeProvider.conditionsFromItem(RPBlocks.ACTIVE_DEFENSE))
+                .offerTo(recipeExporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, RPBlocks.RESTRAINING_FORCE_BLOCK, 1)
+                .pattern("IAI")
+                .pattern("ARA")
+                .pattern("IAI")
+                .input('I', Items.IRON_BLOCK)
+                .input('R', Items.REDSTONE)
+                .input('A', RPBlocks.ADVANCED_HORIZONTAL_BOOSTER)
+                .group("multi_bench")
+                .criterion(FabricRecipeProvider.hasItem(RPBlocks.RESTRAINING_FORCE_BLOCK), FabricRecipeProvider.conditionsFromItem(RPBlocks.RESTRAINING_FORCE_BLOCK))
                 .offerTo(recipeExporter);
     }
 }

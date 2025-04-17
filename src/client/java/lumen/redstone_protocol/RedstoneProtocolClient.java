@@ -42,7 +42,7 @@ public class RedstoneProtocolClient implements ClientModInitializer {
                 RPBlocks.REVERSE_CONTROLLABLE_TRANSPARENT_BLOCK,
                 RPBlocks.CONTROLLABLE_TRANSPARENT_STONE,
                 RPBlocks.ACTIVE_DEFENSE,
-                RPBlocks.PROJECTILE_REDUCER_BLOCK
+                RPBlocks.RESTRAINING_FORCE_BLOCK
         );
 
         BlockEntityRendererFactories.register(RPBlockEntities.LASER_GEN_ENTITY, LaserGenBlockEntityRender::new);
