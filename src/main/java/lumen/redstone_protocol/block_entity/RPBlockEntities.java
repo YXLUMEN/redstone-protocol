@@ -20,8 +20,12 @@ public class RPBlockEntities {
             "active_defense", ActiveDefenseBlockEntity::new, RPBlocks.ACTIVE_DEFENSE
     );
 
-    public static final BlockEntityType<RestrainingForceBlockEntity> PROJECTILE_REDUCER_BLOCK_ENTITY = register(
+    public static final BlockEntityType<RestrainingForceBlockEntity> RESTRAINING_FORCE_BLOCK_ENTITY_BLOCK_ENTITY = register(
             "restraining_force_field", RestrainingForceBlockEntity::new, RPBlocks.RESTRAINING_FORCE_BLOCK
+    );
+
+    public static final BlockEntityType<ItemCollectorBlockEntity> ITEM_COLLECTOR_BLOCK_ENTITY_BLOCK_ENTITY = register(
+            "item_collector_block", ItemCollectorBlockEntity::new, RPBlocks.ITEM_COLLECTOR_BLOCK
     );
 
     private static <T extends BlockEntity> BlockEntityType<T> register(

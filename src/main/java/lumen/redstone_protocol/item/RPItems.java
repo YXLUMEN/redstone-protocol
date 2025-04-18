@@ -48,9 +48,12 @@ public class RPItems {
 
             itemGroup.add(RPBlocks.TRACTOR.asItem());
             itemGroup.add(RPBlocks.LASER_GENERATOR.asItem());
+            itemGroup.add(RPBlocks.ITEM_COLLECTOR_BLOCK.asItem());
+
             itemGroup.add(RPBlocks.ACTIVE_DEFENSE.asItem());
             itemGroup.add(RPBlocks.RESTRAINING_FORCE_BLOCK.asItem());
             itemGroup.add(RPBlocks.BIOLOGICAL_FIELD.asItem());
+            itemGroup.add(RPBlocks.EXPLOSION_ABSORBER_BLOCK.asItem());
         });
     }
 

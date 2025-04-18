@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "multi_bench",
+  "key": {
+    "H": {
+      "item": "minecraft:hopper"
+    },
+    "S": {
+      "item": "minecraft:smooth_stone"
+    },
+    "T": {
+      "item": "redstone-protocol:tractor"
+    }
+  },
+  "pattern": [
+    "SHS",
+    "HTH",
+    "SHS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "redstone-protocol:item_collector_block"
+  }
+}

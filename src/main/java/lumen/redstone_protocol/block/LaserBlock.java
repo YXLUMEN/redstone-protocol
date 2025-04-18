@@ -44,26 +44,33 @@ public class LaserBlock extends PillarBlock {
     @Override
     protected void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
         int mode = state.get(LASER_MODE);
-        if (world.isClient && world.getTime() % 3 == 0) {
-            spawnCollisionParticles(world, entity, getLaserParticle(mode));
-            return;
-        }
-
         applyLaserEffect(mode, world, entity);
         super.onEntityCollision(state, world, pos, entity);
     }
 
-    private ParticleEffect getLaserParticle(int mode) {
+    @Override
+    public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
+        final double spread = 0.1d;
+
+        world.addParticle(getLaserParticle(state.get(LASER_MODE)),
+                pos.getX() + 0.5,
+                pos.getY() + 0.6,
+                pos.getZ() + 0.5,
+                random.nextDouble() * spread, 0.06, random.nextDouble() * spread
+        );
+    }
+
+    private static ParticleEffect getLaserParticle(int mode) {
         return switch (mode) {
             case 1 -> ParticleTypes.END_ROD;
             case 2 -> ParticleTypes.FLAME;
             case 3 -> ParticleTypes.PORTAL;
-            case 4 -> ParticleTypes.CAMPFIRE_COSY_SMOKE;
+            case 4 -> ParticleTypes.WHITE_SMOKE;
             default -> ParticleTypes.CRIT;
         };
     }
 
-    private void applyLaserEffect(int mode, World world, Entity entity) {
+    private static void applyLaserEffect(int mode, World world, Entity entity) {
         switch (mode) {
             case 0 -> {
                 if ((entity instanceof LivingEntity livingEntity)) {
@@ -80,29 +87,12 @@ public class LaserBlock extends PillarBlock {
                 if ((entity instanceof LivingEntity livingEntity)) {
                     livingEntity.setHealth(livingEntity.getHealth() - livingEntity.getMaxHealth() * 0.1f);
                     if (livingEntity.isDead()) {
+                        livingEntity.onDeath(world.getDamageSources().outsideBorder());
                         livingEntity.playSoundIfNotSilent(SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT);
-                        livingEntity.onDeath(world.getDamageSources().generic());
                     }
                 }
             }
         }
-    }
-
-    private void spawnCollisionParticles(World world, Entity entity, ParticleEffect particle) {
-        Random random = world.getRandom();
-        double baseX = entity.getX();
-        double baseY = entity.getY() + 1;
-        double baseZ = entity.getZ();
-
-        final double spread = 0.4;
-        final double halfSpread = 0.2;
-
-        world.addParticle(particle,
-                baseX + (random.nextDouble() * spread - halfSpread),
-                baseY + (random.nextDouble() * spread - halfSpread),
-                baseZ + (random.nextDouble() * spread - halfSpread),
-                0.0, 0.0, 0.0
-        );
     }
 
     @Override

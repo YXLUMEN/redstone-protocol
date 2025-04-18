@@ -336,5 +336,27 @@ public class BenchRecipes extends FabricRecipeProvider {
                 .group("multi_bench")
                 .criterion(FabricRecipeProvider.hasItem(RPBlocks.BIOLOGICAL_FIELD), FabricRecipeProvider.conditionsFromItem(RPBlocks.BIOLOGICAL_FIELD))
                 .offerTo(recipeExporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, RPBlocks.ITEM_COLLECTOR_BLOCK, 1)
+                .pattern("SHS")
+                .pattern("HTH")
+                .pattern("SHS")
+                .input('S', Items.SMOOTH_STONE)
+                .input('T', RPBlocks.TRACTOR)
+                .input('H', Items.HOPPER)
+                .group("multi_bench")
+                .criterion(FabricRecipeProvider.hasItem(RPBlocks.ITEM_COLLECTOR_BLOCK), FabricRecipeProvider.conditionsFromItem(RPBlocks.ITEM_COLLECTOR_BLOCK))
+                .offerTo(recipeExporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, RPBlocks.EXPLOSION_ABSORBER_BLOCK, 1)
+                .pattern("SRS")
+                .pattern("STS")
+                .pattern("SRS")
+                .input('S', Items.SMOOTH_STONE)
+                .input('T', RPBlocks.RESTRAINING_FORCE_BLOCK)
+                .input('R', Items.REDSTONE_BLOCK)
+                .group("multi_bench")
+                .criterion(FabricRecipeProvider.hasItem(RPBlocks.EXPLOSION_ABSORBER_BLOCK), FabricRecipeProvider.conditionsFromItem(RPBlocks.EXPLOSION_ABSORBER_BLOCK))
+                .offerTo(recipeExporter);
     }
 }

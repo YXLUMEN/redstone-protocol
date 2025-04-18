@@ -36,7 +36,7 @@ public class RPBlocks {
                     .strength(1.2f)
                     .requiresTool()
                     .slipperiness(0.999f)
-                    .velocityMultiplier(1.05f)
+                    .velocityMultiplier(1.1f)
             ),
             true
     );
@@ -362,8 +362,26 @@ public class RPBlocks {
             "biological_field",
             new BiologicalFieldBlock(AbstractBlock.Settings.create()
                     .sounds(BlockSoundGroup.GLASS)
-                    .strength(1.2f,20.0f)
-                    ), true
+                    .strength(1.2f, 20.0f)
+            ), true
+    );
+
+    public static final Block ITEM_COLLECTOR_BLOCK = RPBlocks.register(
+            "item_collector_block",
+            new ItemCollectorBlock(AbstractBlock.Settings.create()
+                    .sounds(BlockSoundGroup.METAL)
+                    .strength(1.2f)
+                    .requiresTool()
+            ), true
+    );
+
+    public static final Block EXPLOSION_ABSORBER_BLOCK = RPBlocks.register(
+            "explosion_absorber_block",
+            new ExplosionAbsorberBlock(AbstractBlock.Settings.create()
+                    .sounds(BlockSoundGroup.METAL)
+                    .strength(5f, 3600f)
+                    .requiresTool()
+            ), true
     );
 
     public static Block register(String path, Block block, boolean shouldRegisterItem) {

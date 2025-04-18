@@ -3,9 +3,8 @@ package lumen.redstone_protocol;
 import lumen.redstone_protocol.block.RPBlocks;
 import lumen.redstone_protocol.block_entity.RPBlockEntities;
 import lumen.redstone_protocol.item.RPItems;
-import lumen.util.BiologicalField;
+import lumen.redstone_protocol.screen_handler.RPScreenHandler;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -33,15 +32,11 @@ public class RedstoneProtocol implements ModInitializer {
     public void onInitialize() {
         LOGGER.info("Initializing Redstone Protocol");
 
-        ServerLifecycleEvents.SERVER_STARTED.register(server -> {
-            LOGGER.info("Registering server state");
-            BiologicalField.loadFromWorld(server.getOverworld());
-        });
-
         Registry.register(Registries.ITEM_GROUP, CUSTOM_ITEM_GROUP_KEY, CUSTOM_ITEM_GROUP);
 
         RPItems.initialize();
         RPBlocks.initialize();
         RPBlockEntities.initialize();
+        RPScreenHandler.initialize();
     }
 }

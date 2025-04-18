@@ -1,35 +1,17 @@
 package lumen.redstone_protocol.block;
 
-import lumen.util.BiologicalField;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.ItemStack;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
-
-import static lumen.util.BiologicalField.PROTECTION_RADIUS;
 
 public class BiologicalFieldBlock extends Block {
+    public static final short PROTECTION_RADIUS = 6;
+
     public BiologicalFieldBlock(Settings settings) {
         super(settings);
-    }
-
-    @Override
-    public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
-        super.onPlaced(world, pos, state, placer, itemStack);
-        BiologicalField.addFieldPos(pos);
-    }
-
-    @Override
-    public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
-        if (state.getBlock() != newState.getBlock()) {
-            BiologicalField.removeFieldPos(pos);
-        }
-        super.onStateReplaced(state, world, pos, newState, moved);
     }
 
     @Override
@@ -47,7 +29,7 @@ public class BiologicalFieldBlock extends Block {
             double particleX = centerX + offsetX;
             double particleZ = centerZ + offsetZ;
 
-            world.addParticle(ParticleTypes.END_ROD,
+            world.addParticle(ParticleTypes.HEART,
                     particleX, centerY, particleZ,
                     0, 0.2, 0);
         }

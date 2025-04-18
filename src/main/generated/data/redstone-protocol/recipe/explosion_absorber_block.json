@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "multi_bench",
+  "key": {
+    "R": {
+      "item": "minecraft:redstone_block"
+    },
+    "S": {
+      "item": "minecraft:smooth_stone"
+    },
+    "T": {
+      "item": "redstone-protocol:restraining_force_field"
+    }
+  },
+  "pattern": [
+    "SRS",
+    "STS",
+    "SRS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "redstone-protocol:explosion_absorber_block"
+  }
+}

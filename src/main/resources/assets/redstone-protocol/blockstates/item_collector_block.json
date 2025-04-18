@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "redstone-protocol:block/item_collector_block"
+    },
+    "powered=true": {
+      "model": "redstone-protocol:block/item_collector_block_on"
+    }
+  }
+}

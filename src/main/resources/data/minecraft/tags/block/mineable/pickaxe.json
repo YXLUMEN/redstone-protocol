@@ -6,6 +6,8 @@
     "redstone-protocol:tractor",
     "redstone-protocol:laser_generator",
     "redstone-protocol:active_defense",
-    "redstone-protocol:restraining_force_field"
+    "redstone-protocol:restraining_force_field",
+    "redstone-protocol:item_collector_block",
+    "redstone-protocol:explosion_absorber_block"
   ]
 }

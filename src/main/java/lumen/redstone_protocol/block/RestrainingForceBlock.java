@@ -1,6 +1,7 @@
 package lumen.redstone_protocol.block;
 
 import com.mojang.serialization.MapCodec;
+import lumen.redstone_protocol.block_entity.RPBlockEntities;
 import lumen.redstone_protocol.block_entity.RestrainingForceBlockEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;
@@ -44,11 +45,7 @@ public class RestrainingForceBlock extends BlockWithEntity {
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
         if (!state.get(POWERED)) return null;
-        return (worldIn, pos, stateIn, blockEntity) -> {
-            if (blockEntity instanceof RestrainingForceBlockEntity pRBlockEntity) {
-                pRBlockEntity.tick();
-            }
-        };
+        return validateTicker(type, RPBlockEntities.RESTRAINING_FORCE_BLOCK_ENTITY_BLOCK_ENTITY, RestrainingForceBlockEntity::tick);
     }
 
     @Override

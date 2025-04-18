@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "redstone-protocol:block/explosion_absorber_block_up",
+    "side": "redstone-protocol:block/explosion_absorber_block"
+  }
+}
