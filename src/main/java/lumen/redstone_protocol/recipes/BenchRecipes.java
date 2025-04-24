@@ -358,5 +358,23 @@ public class BenchRecipes extends FabricRecipeProvider {
                 .group("multi_bench")
                 .criterion(FabricRecipeProvider.hasItem(RPBlocks.EXPLOSION_ABSORBER_BLOCK), FabricRecipeProvider.conditionsFromItem(RPBlocks.EXPLOSION_ABSORBER_BLOCK))
                 .offerTo(recipeExporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, RPBlocks.ELEVATOR_BLOCK, 1)
+                .pattern("WWW")
+                .pattern("WEW")
+                .pattern("WWW")
+                .input('W', ItemTags.WOOL)
+                .input('E', Items.ENDER_PEARL)
+                .group("multi_bench")
+                .criterion(FabricRecipeProvider.hasItem(RPBlocks.ELEVATOR_BLOCK), FabricRecipeProvider.conditionsFromItem(RPBlocks.ELEVATOR_BLOCK))
+                .offerTo(recipeExporter);
+
+        // 原版增强
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Items.DEEPSLATE, 2)
+                .pattern("CC")
+                .pattern("CC")
+                .input('C', Items.COBBLESTONE)
+                .criterion(FabricRecipeProvider.hasItem(Items.DEEPSLATE), FabricRecipeProvider.conditionsFromItem(Items.DEEPSLATE))
+                .offerTo(recipeExporter);
     }
 }

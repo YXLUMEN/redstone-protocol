@@ -4,7 +4,9 @@ import lumen.redstone_protocol.block.RPBlocks;
 import lumen.redstone_protocol.block_entity.RPBlockEntities;
 import lumen.redstone_protocol.item.RPItems;
 import lumen.redstone_protocol.screen_handler.RPScreenHandler;
+import lumen.redstone_protocol.util.ElevatorCooldownHandler;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -38,5 +40,7 @@ public class RedstoneProtocol implements ModInitializer {
         RPBlocks.initialize();
         RPBlockEntities.initialize();
         RPScreenHandler.initialize();
+
+        ServerTickEvents.END_SERVER_TICK.register(server -> ElevatorCooldownHandler.tickCooldowns());
     }
 }

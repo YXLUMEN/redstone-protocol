@@ -28,6 +28,10 @@ public class RPBlockEntities {
             "item_collector_block", ItemCollectorBlockEntity::new, RPBlocks.ITEM_COLLECTOR_BLOCK
     );
 
+    public static final BlockEntityType<ElevatorBlockEntity> ELEVATOR_BLOCK_ENTITY = register(
+            "elevator_block", ElevatorBlockEntity::new, RPBlocks.ELEVATOR_BLOCK
+    );
+
     private static <T extends BlockEntity> BlockEntityType<T> register(
             String name,
             BlockEntityType.BlockEntityFactory<? extends T> entityFactory,

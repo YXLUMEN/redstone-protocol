@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "multi_bench",
+  "key": {
+    "E": {
+      "item": "minecraft:ender_pearl"
+    },
+    "W": {
+      "tag": "minecraft:wool"
+    }
+  },
+  "pattern": [
+    "WWW",
+    "WEW",
+    "WWW"
+  ],
+  "result": {
+    "count": 1,
+    "id": "redstone-protocol:elevator_block"
+  }
+}

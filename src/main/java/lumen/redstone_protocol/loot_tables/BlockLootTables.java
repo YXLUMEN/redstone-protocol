@@ -51,5 +51,6 @@ public class BlockLootTables extends FabricBlockLootTableProvider {
         addDrop(RPBlocks.BIOLOGICAL_FIELD);
         addDrop(RPBlocks.ITEM_COLLECTOR_BLOCK);
         addDrop(RPBlocks.EXPLOSION_ABSORBER_BLOCK);
+        addDrop(RPBlocks.ELEVATOR_BLOCK);
     }
 }

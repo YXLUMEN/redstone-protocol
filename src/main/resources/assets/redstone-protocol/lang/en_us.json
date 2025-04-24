@@ -34,5 +34,6 @@
   "block.redstone-protocol.biological_field": "BiologicalField",
   "block.redstone-protocol.item_collector_block": "Item Collector Block",
   "block.redstone-protocol.explosion_absorber_block": "Explosion Absorber Block",
+  "block.redstone-protocol.elevator_block": "Elevator Block",
   "container.item_collector": "Item Collector"
 }

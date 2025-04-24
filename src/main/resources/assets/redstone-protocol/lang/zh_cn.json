@@ -33,6 +33,7 @@
   "block.redstone-protocol.restraining_force_field": "禁制力场",
   "block.redstone-protocol.biological_field": "维生力场",
   "block.redstone-protocol.item_collector_block": "物品收集器",
-  "container.item_collector": "物品收集器",
-  "block.redstone-protocol.explosion_absorber_block": "爆炸吸收器"
+  "block.redstone-protocol.explosion_absorber_block": "爆炸吸收器",
+  "block.redstone-protocol.elevator_block": "电梯",
+  "container.item_collector": "物品收集器"
 }

@@ -54,6 +54,8 @@ public class RPItems {
             itemGroup.add(RPBlocks.RESTRAINING_FORCE_BLOCK.asItem());
             itemGroup.add(RPBlocks.BIOLOGICAL_FIELD.asItem());
             itemGroup.add(RPBlocks.EXPLOSION_ABSORBER_BLOCK.asItem());
+
+            itemGroup.add(RPBlocks.ELEVATOR_BLOCK.asItem());
         });
     }
 

@@ -384,6 +384,14 @@ public class RPBlocks {
             ), true
     );
 
+    public static final Block ELEVATOR_BLOCK = RPBlocks.register(
+            "elevator_block",
+            new ElevatorBlock(AbstractBlock.Settings.create()
+                    .sounds(BlockSoundGroup.WOOL)
+                    .strength(1.0f)
+            ), true
+    );
+
     public static Block register(String path, Block block, boolean shouldRegisterItem) {
         Identifier id = Identifier.of(RedstoneProtocol.MOD_ID, path);
         if (shouldRegisterItem) {

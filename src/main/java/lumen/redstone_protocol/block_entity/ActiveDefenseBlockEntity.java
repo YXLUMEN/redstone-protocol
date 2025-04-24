@@ -18,13 +18,13 @@ import java.util.List;
 
 public class ActiveDefenseBlockEntity extends BlockEntity {
     private static final short DETECTION_RADIUS = 6;
-    private static final short DESTROY_COST = 8;
-    private static final int MAX_DESTROY_COUNT = 64;
+    private static final short DESTROY_COST = 12;
+    private static final short MAX_DESTROY_COUNT = 60;
 
     private final Vec3d BLOCK_CENTER = new Vec3d(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5);
     private final Box detectionBox = new Box(pos).expand(DETECTION_RADIUS);
 
-    private int destroyCount = 0;
+    private short destroyCount = 0;
     private boolean cooldown = false;
 
     public ActiveDefenseBlockEntity(BlockPos pos, BlockState state) {
@@ -70,7 +70,6 @@ public class ActiveDefenseBlockEntity extends BlockEntity {
             blockEntity.destroyCount += DESTROY_COST;
         }
     }
-
 
     private static void spanDestroyParticles(ServerWorld serverWorld, Vec3d pos, Vec3d blockCenter) {
         // 沿着 ADS 中心与弹射物当前位置之间插值生成粒子
