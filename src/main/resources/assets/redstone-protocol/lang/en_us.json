@@ -35,5 +35,6 @@
   "block.redstone-protocol.item_collector_block": "Item Collector Block",
   "block.redstone-protocol.explosion_absorber_block": "Explosion Absorber Block",
   "block.redstone-protocol.elevator_block": "Elevator Block",
+  "item.redstone-protocol.smoke_bomb": "Smoke Bomb",
   "container.item_collector": "Item Collector"
 }

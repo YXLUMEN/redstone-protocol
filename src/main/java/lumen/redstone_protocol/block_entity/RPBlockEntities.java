@@ -33,14 +33,17 @@ public class RPBlockEntities {
     );
 
     private static <T extends BlockEntity> BlockEntityType<T> register(
-            String name,
+            String id,
             BlockEntityType.BlockEntityFactory<? extends T> entityFactory,
             Block... blocks) {
 
-        Identifier id = Identifier.of(RedstoneProtocol.MOD_ID, name);
-        return Registry.register(Registries.BLOCK_ENTITY_TYPE, id, BlockEntityType.Builder.<T>create(entityFactory, blocks).build());
+        return Registry.register(
+                Registries.BLOCK_ENTITY_TYPE,
+                Identifier.of(RedstoneProtocol.MOD_ID, id),
+                BlockEntityType.Builder.<T>create(entityFactory, blocks).build()
+        );
     }
 
-    public static void initialize() {
+    public static void registerBlockEntities() {
     }
 }

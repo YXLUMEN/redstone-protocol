@@ -35,5 +35,6 @@
   "block.redstone-protocol.item_collector_block": "物品收集器",
   "block.redstone-protocol.explosion_absorber_block": "爆炸吸收器",
   "block.redstone-protocol.elevator_block": "电梯",
+  "item.redstone-protocol.smoke_bomb": "烟雾弹",
   "container.item_collector": "物品收集器"
 }

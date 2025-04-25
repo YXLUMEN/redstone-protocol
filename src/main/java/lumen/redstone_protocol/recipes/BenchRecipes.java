@@ -1,6 +1,7 @@
 package lumen.redstone_protocol.recipes;
 
 import lumen.redstone_protocol.block.RPBlocks;
+import lumen.redstone_protocol.item.RPItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.server.recipe.RecipeExporter;
@@ -367,6 +368,16 @@ public class BenchRecipes extends FabricRecipeProvider {
                 .input('E', Items.ENDER_PEARL)
                 .group("multi_bench")
                 .criterion(FabricRecipeProvider.hasItem(RPBlocks.ELEVATOR_BLOCK), FabricRecipeProvider.conditionsFromItem(RPBlocks.ELEVATOR_BLOCK))
+                .offerTo(recipeExporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, RPItems.SMOKE_BOMB, 2)
+                .pattern("IRI")
+                .pattern("IGI")
+                .pattern("III")
+                .input('I', Items.IRON_INGOT)
+                .input('G', Items.GUNPOWDER)
+                .input('R', Items.REDSTONE)
+                .criterion(FabricRecipeProvider.hasItem(RPItems.SMOKE_BOMB), FabricRecipeProvider.conditionsFromItem(RPItems.SMOKE_BOMB))
                 .offerTo(recipeExporter);
 
         // 原版增强
