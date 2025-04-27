@@ -12,6 +12,6 @@ public class RPScreenHandler {
             Registries.SCREEN_HANDLER, Identifier.of(RedstoneProtocol.MOD_ID, "item_collector_block"),
             new ScreenHandlerType<>(ItemCollectorScreenHandler::new, FeatureSet.empty()));
 
-    public static void initialize() {
+    public static void registerScreenHandler() {
     }
 }

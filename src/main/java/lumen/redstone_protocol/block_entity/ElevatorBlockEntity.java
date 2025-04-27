@@ -72,9 +72,8 @@ public class ElevatorBlockEntity extends BlockEntity {
         return null;
     }
 
-
     private static boolean isSafeForTeleport(ServerWorld world, BlockPos pos) {
-        return world.getBlockState(pos.up(1)).isAir() && world.getBlockState(pos.up(2)).isAir();
+        return world.getBlockState(pos.up(1)).isReplaceable() && world.getBlockState(pos.up(2)).isReplaceable();
     }
 
     private static boolean isPlayerJumping(PlayerEntity player) {

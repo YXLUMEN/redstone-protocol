@@ -35,6 +35,11 @@
   "block.redstone-protocol.item_collector_block": "Item Collector Block",
   "block.redstone-protocol.explosion_absorber_block": "Explosion Absorber Block",
   "block.redstone-protocol.elevator_block": "Elevator Block",
-  "item.redstone-protocol.smoke_bomb": "Smoke Bomb",
+  "item.redstone-protocol.smoke_grenade": "Smoke Grenade",
+  "item.redstone-protocol.flash_grenade": "Flash Grenade",
+  "entity.redstone-protocol.smoke_grenade": "Smoke Grenade",
+  "entity.redstone-protocol.smoke_effect_area": "Smoke Area",
+  "entity.redstone-protocol.flash_grenade": "Flash Grenade",
+  "effect.redstone-protocol.flashed": "Flashed",
   "container.item_collector": "Item Collector"
 }

@@ -1,0 +1,21 @@
+{
+  "targets": [ "swap" ],
+  "passes": [
+    {
+      "name": "horizontal_blur",
+      "intarget": "minecraft:main",
+      "outtarget": "swap",
+      "uniforms": [
+        { "name": "BlurRadius", "type": "float", "values": [ 0.005 ] }
+      ]
+    },
+    {
+      "name": "vertical_blur",
+      "intarget": "swap",
+      "outtarget": "minecraft:main",
+      "uniforms": [
+        { "name": "BlurRadius", "type": "float", "values": [ 0.005 ] }
+      ]
+    }
+  ]
+}

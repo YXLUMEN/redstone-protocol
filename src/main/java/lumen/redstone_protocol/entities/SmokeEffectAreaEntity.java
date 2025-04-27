@@ -154,15 +154,15 @@ public class SmokeEffectAreaEntity extends Entity {
                 continue;
             }
 
-            entity.addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS,
-                    40, 0, false, false, true));
-
             if (entity instanceof MobEntity mob) {
                 mob.setTarget(null);
                 if (mob.getNavigation() != null) {
                     mob.getNavigation().stop();
                 }
             }
+
+            entity.addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS,
+                    40, 0, false, false, true));
         }
     }
 

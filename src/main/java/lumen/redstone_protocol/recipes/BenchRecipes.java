@@ -370,14 +370,24 @@ public class BenchRecipes extends FabricRecipeProvider {
                 .criterion(FabricRecipeProvider.hasItem(RPBlocks.ELEVATOR_BLOCK), FabricRecipeProvider.conditionsFromItem(RPBlocks.ELEVATOR_BLOCK))
                 .offerTo(recipeExporter);
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, RPItems.SMOKE_BOMB, 2)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, RPItems.SMOKE_GRENADE, 2)
                 .pattern("IRI")
                 .pattern("IGI")
                 .pattern("III")
                 .input('I', Items.IRON_INGOT)
                 .input('G', Items.GUNPOWDER)
                 .input('R', Items.REDSTONE)
-                .criterion(FabricRecipeProvider.hasItem(RPItems.SMOKE_BOMB), FabricRecipeProvider.conditionsFromItem(RPItems.SMOKE_BOMB))
+                .criterion(FabricRecipeProvider.hasItem(RPItems.SMOKE_GRENADE), FabricRecipeProvider.conditionsFromItem(RPItems.SMOKE_GRENADE))
+                .offerTo(recipeExporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, RPItems.FLASH_GRENADE, 2)
+                .pattern("IRI")
+                .pattern("IGI")
+                .pattern("III")
+                .input('I', Items.IRON_INGOT)
+                .input('G', Items.GLOWSTONE_DUST)
+                .input('R', Items.REDSTONE)
+                .criterion(FabricRecipeProvider.hasItem(RPItems.FLASH_GRENADE), FabricRecipeProvider.conditionsFromItem(RPItems.FLASH_GRENADE))
                 .offerTo(recipeExporter);
 
         // 原版增强

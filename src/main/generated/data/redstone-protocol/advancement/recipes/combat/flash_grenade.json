@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_smoke_bomb": {
+    "has_flash_grenade": {
       "conditions": {
         "items": [
           {
-            "items": "redstone-protocol:smoke_bomb"
+            "items": "redstone-protocol:flash_grenade"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "redstone-protocol:smoke_bomb"
+        "recipe": "redstone-protocol:flash_grenade"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_smoke_bomb"
+      "has_flash_grenade"
     ]
   ],
   "rewards": {
     "recipes": [
-      "redstone-protocol:smoke_bomb"
+      "redstone-protocol:flash_grenade"
     ]
   }
 }

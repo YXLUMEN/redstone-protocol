@@ -20,6 +20,7 @@ public abstract class EntityRenderersMixin {
 
     @Inject(method = "<clinit>" , at = @At("TAIL"))
     private static void initExtraStaticValue(CallbackInfo ci) {
-        register(RPEntities.SMOKE_BOMB, FlyingItemEntityRenderer::new);
+        register(RPEntities.SMOKE_GRENADE, FlyingItemEntityRenderer::new);
+        register(RPEntities.FLASH_GRENADE, FlyingItemEntityRenderer::new);
     }
 }

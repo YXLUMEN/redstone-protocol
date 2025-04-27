@@ -10,7 +10,8 @@ import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-import static lumen.redstone_protocol.item.RPItems.SMOKE_BOMB;
+import static lumen.redstone_protocol.item.RPItems.FLASH_GRENADE;
+import static lumen.redstone_protocol.item.RPItems.SMOKE_GRENADE;
 
 public class RPItemsGroup {
     public static final ItemGroup REDSTONE_PROTOCOL_ITEM_GROUP = Registry.register(
@@ -55,7 +56,8 @@ public class RPItemsGroup {
                         entries.add(RPBlocks.EXPLOSION_ABSORBER_BLOCK);
                         entries.add(RPBlocks.ELEVATOR_BLOCK);
 
-                        entries.add(SMOKE_BOMB);
+                        entries.add(SMOKE_GRENADE);
+                        entries.add(FLASH_GRENADE);
                     })
                     .build()
     );
