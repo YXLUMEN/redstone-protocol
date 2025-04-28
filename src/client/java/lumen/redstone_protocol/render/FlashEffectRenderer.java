@@ -51,12 +51,10 @@ public class FlashEffectRenderer {
         if (alpha > MIN_ALPHA) {
             int width = context.getScaledWindowWidth();
             int height = context.getScaledWindowHeight();
-            context.fill(0, 0, width, height, 2000, getFlashColor(alpha));
+            context.fill(0, 0, width, height, 600, getFlashColor(alpha));
             MinecraftClient.getInstance().gameRenderer.renderBlur(blurFactor * alpha);
-        } else {
-            synchronized (LOCK) {
-                currentStrength = 0;
-            }
+        } else synchronized (LOCK) {
+            currentStrength = 0;
         }
     }
 

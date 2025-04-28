@@ -19,11 +19,9 @@ public class FlashEffect extends StatusEffect {
     public boolean applyUpdateEffect(LivingEntity entity, int amplifier) {
         if (entity instanceof MobEntity mob) {
             mob.setTarget(null);
-            if (mob.getNavigation() != null) {
-                mob.getNavigation().stop();
-            }
+            mob.setAttacking(false);
+            mob.getNavigation().stop();
         }
-        entity.setHeadYaw(entity.getBodyYaw() + 180);
 
         return super.applyUpdateEffect(entity, amplifier);
     }

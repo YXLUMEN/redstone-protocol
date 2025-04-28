@@ -10,8 +10,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-import static lumen.redstone_protocol.item.RPItems.FLASH_GRENADE;
-import static lumen.redstone_protocol.item.RPItems.SMOKE_GRENADE;
+import static lumen.redstone_protocol.item.RPItems.*;
 
 public class RPItemsGroup {
     public static final ItemGroup REDSTONE_PROTOCOL_ITEM_GROUP = Registry.register(
@@ -58,6 +57,7 @@ public class RPItemsGroup {
 
                         entries.add(SMOKE_GRENADE);
                         entries.add(FLASH_GRENADE);
+                        entries.add(INCENDIARY_GRENADE);
                     })
                     .build()
     );

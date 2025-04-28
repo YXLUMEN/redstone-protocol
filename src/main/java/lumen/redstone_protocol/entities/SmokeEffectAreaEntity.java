@@ -1,5 +1,6 @@
 package lumen.redstone_protocol.entities;
 
+import lumen.redstone_protocol.effect.RPEffects;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.piston.PistonBehavior;
@@ -137,14 +138,12 @@ public class SmokeEffectAreaEntity extends Entity {
 
     private static void extinguishFires(ServerWorld world, BlockPos pos) {
         BlockState state = world.getBlockState(pos);
-        if (state.isOf(Blocks.FIRE)) {
+        if (state.isOf(Blocks.FIRE) || state.isOf(Blocks.SOUL_FIRE)) {
             world.setBlockState(pos, Blocks.AIR.getDefaultState());
             world.playSound(null, pos, SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 0.5f, 1.0f);
         }
         Box box = new Box(pos).expand(0.5);
-        for (LivingEntity entity : world.getEntitiesByClass(LivingEntity.class, box, Entity::isOnFire)) {
-            entity.extinguish();
-        }
+        world.getEntitiesByClass(LivingEntity.class, box, Entity::isOnFire).forEach(Entity::extinguish);
     }
 
     private static void blindEntity(ServerWorld world, BlockPos pos) {
@@ -156,13 +155,14 @@ public class SmokeEffectAreaEntity extends Entity {
 
             if (entity instanceof MobEntity mob) {
                 mob.setTarget(null);
-                if (mob.getNavigation() != null) {
-                    mob.getNavigation().stop();
-                }
+                mob.setAttacking(false);
             }
 
             entity.addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS,
                     40, 0, false, false, true));
+
+            entity.addStatusEffect(new StatusEffectInstance(RPEffects.SMOKE_CLOAK,
+                    40, 0, false, false, false));
         }
     }
 

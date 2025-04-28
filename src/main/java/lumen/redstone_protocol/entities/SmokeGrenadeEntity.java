@@ -12,16 +12,19 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class SmokeGrenadeEntity extends AbstractGrenadeEntity {
+    private static final int DEFAULT_FUSE = 60;
+    private static final short MAX_BOUNCES = 4;
+
     public SmokeGrenadeEntity(EntityType<? extends SmokeGrenadeEntity> entityType, World world) {
         super(entityType, world);
     }
 
     public SmokeGrenadeEntity(World world, LivingEntity owner) {
-        super(RPEntities.SMOKE_GRENADE, world, owner);
+        super(RPEntities.SMOKE_GRENADE_ENTITY_ENTITY, world, owner);
     }
 
     public SmokeGrenadeEntity(World world, double x, double y, double z) {
-        super(RPEntities.SMOKE_GRENADE, world, x, y, z);
+        super(RPEntities.SMOKE_GRENADE_ENTITY_ENTITY, world, x, y, z);
     }
 
     @Override
@@ -47,5 +50,15 @@ public class SmokeGrenadeEntity extends AbstractGrenadeEntity {
 
         SmokeEffectAreaEntity effectArea = new SmokeEffectAreaEntity(world, pos, 8);
         serverWorld.spawnEntity(effectArea);
+    }
+
+    @Override
+    protected int getDefaultFuse() {
+        return DEFAULT_FUSE;
+    }
+
+    @Override
+    protected short getMaxBounces() {
+        return MAX_BOUNCES;
     }
 }

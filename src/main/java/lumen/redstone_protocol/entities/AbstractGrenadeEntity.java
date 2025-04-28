@@ -6,6 +6,7 @@ import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
@@ -13,8 +14,6 @@ import net.minecraft.world.World;
 
 public abstract class AbstractGrenadeEntity extends ThrownItemEntity {
     private static final TrackedData<Integer> FUSE = DataTracker.registerData(AbstractGrenadeEntity.class, TrackedDataHandlerRegistry.INTEGER);
-    private static final int DEFAULT_FUSE = 60;
-    private static final short MAX_BOUNCES = 4;
 
     private short bounceCount = 0;
 
@@ -34,7 +33,7 @@ public abstract class AbstractGrenadeEntity extends ThrownItemEntity {
     protected void onBlockHit(BlockHitResult blockHitResult) {
         super.onBlockHit(blockHitResult);
 
-        if (this.bounceCount >= MAX_BOUNCES) {
+        if (this.bounceCount >= getMaxBounces()) {
             this.setVelocity(Vec3d.ZERO);
             return;
         }
@@ -56,7 +55,17 @@ public abstract class AbstractGrenadeEntity extends ThrownItemEntity {
         if (fuse <= 0) {
             this.explode();
             this.discard();
+            return;
         }
+
+        if (fuse <= 10) {
+            this.getWorld().addParticle(ParticleTypes.FLAME,
+                    this.getX(), this.getY() + 0.3, this.getZ(),
+                    0.0D, 0.0D, 0.0D);
+        }
+        this.getWorld().addParticle(ParticleTypes.SMOKE,
+                this.getX(), this.getY() + 0.3, this.getZ(),
+                0.0D, 0.0D, 0.0D);
     }
 
     protected abstract void explode();
@@ -72,6 +81,10 @@ public abstract class AbstractGrenadeEntity extends ThrownItemEntity {
     @Override
     protected void initDataTracker(DataTracker.Builder builder) {
         super.initDataTracker(builder);
-        builder.add(FUSE, DEFAULT_FUSE);
+        builder.add(FUSE, getDefaultFuse());
     }
+
+    protected abstract int getDefaultFuse();
+
+    protected abstract short getMaxBounces();
 }

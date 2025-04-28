@@ -374,24 +374,34 @@ public class BenchRecipes extends FabricRecipeProvider {
                 .pattern("IRI")
                 .pattern("IGI")
                 .pattern("III")
-                .input('I', Items.IRON_INGOT)
+                .input('I', Items.IRON_NUGGET)
                 .input('G', Items.GUNPOWDER)
                 .input('R', Items.REDSTONE)
                 .criterion(FabricRecipeProvider.hasItem(RPItems.SMOKE_GRENADE), FabricRecipeProvider.conditionsFromItem(RPItems.SMOKE_GRENADE))
                 .offerTo(recipeExporter);
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, RPItems.FLASH_GRENADE, 2)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, RPItems.FLASH_GRENADE, 1)
                 .pattern("IRI")
                 .pattern("IGI")
                 .pattern("III")
-                .input('I', Items.IRON_INGOT)
+                .input('I', Items.IRON_NUGGET)
                 .input('G', Items.GLOWSTONE_DUST)
                 .input('R', Items.REDSTONE)
                 .criterion(FabricRecipeProvider.hasItem(RPItems.FLASH_GRENADE), FabricRecipeProvider.conditionsFromItem(RPItems.FLASH_GRENADE))
                 .offerTo(recipeExporter);
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, RPItems.INCENDIARY_GRENADE, 1)
+                .pattern("IRI")
+                .pattern("IGI")
+                .pattern("III")
+                .input('I', Items.IRON_NUGGET)
+                .input('G', Items.BLAZE_POWDER)
+                .input('R', Items.REDSTONE)
+                .criterion(FabricRecipeProvider.hasItem(RPItems.INCENDIARY_GRENADE), FabricRecipeProvider.conditionsFromItem(RPItems.INCENDIARY_GRENADE))
+                .offerTo(recipeExporter);
+
         // 原版增强
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Items.DEEPSLATE, 2)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Items.DEEPSLATE, 1)
                 .pattern("CC")
                 .pattern("CC")
                 .input('C', Items.COBBLESTONE)

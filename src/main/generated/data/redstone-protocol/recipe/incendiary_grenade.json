@@ -3,7 +3,7 @@
   "category": "equipment",
   "key": {
     "G": {
-      "item": "minecraft:gunpowder"
+      "item": "minecraft:blaze_powder"
     },
     "I": {
       "item": "minecraft:iron_nugget"
@@ -18,7 +18,7 @@
     "III"
   ],
   "result": {
-    "count": 2,
-    "id": "redstone-protocol:smoke_grenade"
+    "count": 1,
+    "id": "redstone-protocol:incendiary_grenade"
   }
 }

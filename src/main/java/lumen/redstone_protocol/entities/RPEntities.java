@@ -9,7 +9,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 public class RPEntities {
-    public static final EntityType<SmokeGrenadeEntity> SMOKE_GRENADE = register(
+    public static final EntityType<SmokeGrenadeEntity> SMOKE_GRENADE_ENTITY_ENTITY = register(
             "smoke_grenade",
             EntityType.Builder.<SmokeGrenadeEntity>create(SmokeGrenadeEntity::new, SpawnGroup.MISC)
                     .dimensions(0.3f, 0.4f)
@@ -24,9 +24,17 @@ public class RPEntities {
                     .maxTrackingRange(0)
     );
 
-    public static final EntityType<FlashGrenadeEntity> FLASH_GRENADE = register(
+    public static final EntityType<FlashGrenadeEntity> GRENADE_ENTITY_ENTITY = register(
             "flash_grenade",
             EntityType.Builder.<FlashGrenadeEntity>create(FlashGrenadeEntity::new, SpawnGroup.MISC)
+                    .dimensions(0.3f, 0.4f)
+                    .maxTrackingRange(4)
+                    .trackingTickInterval(10)
+    );
+
+    public static final EntityType<IncendiaryGrenadeEntity> INCENDIARY_GRENADE_ENTITY_ENTITY = register(
+            "incendiary_grenade",
+            EntityType.Builder.<IncendiaryGrenadeEntity>create(IncendiaryGrenadeEntity::new, SpawnGroup.MISC)
                     .dimensions(0.3f, 0.4f)
                     .maxTrackingRange(4)
                     .trackingTickInterval(10)

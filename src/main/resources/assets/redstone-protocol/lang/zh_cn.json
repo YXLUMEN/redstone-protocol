@@ -37,9 +37,11 @@
   "block.redstone-protocol.elevator_block": "电梯",
   "item.redstone-protocol.smoke_grenade": "烟雾弹",
   "item.redstone-protocol.flash_grenade": "闪光弹",
+  "item.redstone-protocol.incendiary_grenade": "燃烧弹",
   "entity.redstone-protocol.smoke_grenade": "烟雾弹",
   "entity.redstone-protocol.smoke_effect_area": "烟雾区域",
   "entity.redstone-protocol.flash_grenade": "闪光弹",
+  "entity.redstone-protocol.incendiary_grenade": "燃烧弹",
   "effect.redstone-protocol.flashed": "炫光",
   "container.item_collector": "物品收集器"
 }

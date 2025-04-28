@@ -15,7 +15,7 @@ import net.minecraft.util.math.Position;
 import net.minecraft.world.World;
 
 public class FlashGrenadeItem extends Item implements ProjectileItem {
-    private static final int COOLDOWN_TICKS = 20 * 4;
+    private static final int COOLDOWN_TICKS = 20 * 3;
 
     public FlashGrenadeItem(Item.Settings settings) {
         super(settings);
@@ -39,9 +39,10 @@ public class FlashGrenadeItem extends Item implements ProjectileItem {
         );
 
         if (!world.isClient) {
+            float speed = user.isSneaking() ? 0.5F : 1.5F;
             FlashGrenadeEntity smokeBombEntity = new FlashGrenadeEntity(world, user);
             smokeBombEntity.setItem(itemStack);
-            smokeBombEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0F, 1.5F, 1.0F);
+            smokeBombEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0F, speed, 1.0F);
             world.spawnEntity(smokeBombEntity);
         }
 

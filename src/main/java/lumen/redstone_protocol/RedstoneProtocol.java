@@ -3,7 +3,7 @@ package lumen.redstone_protocol;
 import lumen.RPItemsGroup;
 import lumen.redstone_protocol.block.RPBlocks;
 import lumen.redstone_protocol.block_entity.RPBlockEntities;
-import lumen.redstone_protocol.effect.RPEffect;
+import lumen.redstone_protocol.effect.RPEffects;
 import lumen.redstone_protocol.entities.RPEntities;
 import lumen.redstone_protocol.item.RPItems;
 import lumen.redstone_protocol.network.RPNetwork;
@@ -31,11 +31,10 @@ public class RedstoneProtocol implements ModInitializer {
 
         RPEntities.registerEntities();
         RPBlockEntities.registerBlockEntities();
-        RPEffect.registerEffects();
+        RPEffects.registerEffects();
 
         RPScreenHandler.registerScreenHandler();
 
         ServerTickEvents.END_SERVER_TICK.register(server -> ElevatorCooldownHandler.tickCooldowns());
-
     }
 }

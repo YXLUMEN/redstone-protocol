@@ -6,7 +6,7 @@
       "item": "minecraft:glowstone_dust"
     },
     "I": {
-      "item": "minecraft:iron_ingot"
+      "item": "minecraft:iron_nugget"
     },
     "R": {
       "item": "minecraft:redstone"
@@ -18,7 +18,7 @@
     "III"
   ],
   "result": {
-    "count": 2,
+    "count": 1,
     "id": "redstone-protocol:flash_grenade"
   }
 }
