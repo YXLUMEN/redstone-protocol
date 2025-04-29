@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_frag_grenade": {
+      "conditions": {
+        "items": [
+          {
+            "items": "redstone-protocol:frag_grenade"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "redstone-protocol:frag_grenade"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_frag_grenade"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "redstone-protocol:frag_grenade"
+    ]
+  }
+}

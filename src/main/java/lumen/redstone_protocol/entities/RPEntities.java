@@ -40,6 +40,21 @@ public class RPEntities {
                     .trackingTickInterval(10)
     );
 
+    public static final EntityType<FragGrenadeEntity> FRAG_GRENADE_ENTITY_ENTITY = register(
+            "frag_grenade",
+            EntityType.Builder.<FragGrenadeEntity>create(FragGrenadeEntity::new, SpawnGroup.MISC)
+                    .dimensions(0.35f, 0.35f)
+                    .maxTrackingRange(4)
+                    .trackingTickInterval(10)
+    );
+
+    public static final EntityType<FragmentEntity> FRAGMENT_ENTITY = register(
+            "fragment",
+            EntityType.Builder.<FragmentEntity>create(FragmentEntity::new, SpawnGroup.MISC)
+                    .dimensions(0.2f, 0.2f)
+                    .maxTrackingRange(4)
+    );
+
     private static <T extends Entity> EntityType<T> register(String id, EntityType.Builder<T> builder) {
         return Registry.register(Registries.ENTITY_TYPE, Identifier.of(RedstoneProtocol.MOD_ID, id), builder.build());
     }

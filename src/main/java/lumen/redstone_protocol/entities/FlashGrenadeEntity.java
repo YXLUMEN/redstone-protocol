@@ -68,7 +68,7 @@ public class FlashGrenadeEntity extends AbstractGrenadeEntity {
             if (impact <= 0.1f) continue;
 
             if (this.getOwner() instanceof PlayerEntity owner) {
-                entity.damage(world.getDamageSources().playerAttack(owner), 0.0f);
+                entity.damage(world.getDamageSources().playerAttack(owner), 0.1f);
             }
             if (entity instanceof PlayerEntity player) {
                 applyPlayerFlash((ServerPlayerEntity) player, impact);

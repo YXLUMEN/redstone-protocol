@@ -24,7 +24,6 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -99,13 +98,15 @@ public class SmokeEffectAreaEntity extends Entity {
 
     private void diffuseSmoke(ServerWorld world, float factor) {
         Map<BlockPos, Float> newDensity = new HashMap<>(this.smokeDensity);
-        for (BlockPos pos : new ArrayList<>(this.smokeDensity.keySet())) {
-            float currentDensity = this.smokeDensity.get(pos);
+        for (Map.Entry<BlockPos, Float> entry : new HashMap<>(this.smokeDensity).entrySet()) {
+            BlockPos pos = entry.getKey();
+            float currentDensity = entry.getValue();
+
             if (currentDensity <= 0) continue;
 
             for (Direction direction : Direction.values()) {
                 BlockPos neighbor = pos.offset(direction);
-                if (getEuclideanDistance(this.origin, neighbor) > this.maxRadius) continue;
+                if (getDistance(origin, neighbor) > maxRadius) continue;
                 if (!canSmokePassThrough(world, neighbor)) continue;
 
                 float neighborDensity = newDensity.getOrDefault(neighbor, 0.0f);
@@ -117,11 +118,11 @@ public class SmokeEffectAreaEntity extends Entity {
             }
         }
 
-        newDensity.entrySet().removeIf(e -> e.getValue() < MIN_DENSITY);
+        newDensity.values().removeIf(v -> v < MIN_DENSITY);
         this.smokeDensity = newDensity;
     }
 
-    private boolean canSmokePassThrough(World world, BlockPos pos) {
+    private static boolean canSmokePassThrough(World world, BlockPos pos) {
         BlockState state = world.getBlockState(pos);
         return state.isAir() || state.isReplaceable();
     }
@@ -176,7 +177,7 @@ public class SmokeEffectAreaEntity extends Entity {
                 0.01);
     }
 
-    private static double getEuclideanDistance(BlockPos a, BlockPos b) {
+    private static double getDistance(BlockPos a, BlockPos b) {
         return Math.sqrt(Math.pow(a.getX() - b.getX(), 2) +
                 Math.pow(a.getY() - b.getY(), 2) +
                 Math.pow(a.getZ() - b.getZ(), 2));

@@ -3,7 +3,6 @@ package lumen.redstone_protocol.render;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.render.RenderTickCounter;
-import net.minecraft.util.Util;
 import net.minecraft.util.math.MathHelper;
 
 public class FlashEffectRenderer {
@@ -17,26 +16,18 @@ public class FlashEffectRenderer {
     private static long currentEndTime = 0;
 
     public static void handleFlashEffect(float strength) {
+        float adjustedStrength = (float) Math.pow(MathHelper.clamp(strength, 0, 1), 0.7);
         synchronized (LOCK) {
-            float adjustedStrength = (float) Math.pow(MathHelper.clamp(strength, 0, 1), 0.7);
             blurFactor = Math.min(0.5f, strength);
             currentStrength = Math.max(currentStrength, adjustedStrength * MAX_STRENGTH);
-            currentEndTime = Util.getMeasuringTimeMs() + (long) (BASE_DURATION * currentStrength);
+            currentEndTime = System.currentTimeMillis() + (long) (BASE_DURATION * currentStrength);
         }
     }
 
     public static void render(DrawContext context, RenderTickCounter tickCounter) {
         if (currentStrength <= 0) return;
 
-        final float renderStrength;
-        final long renderEndTime;
-
-        synchronized (LOCK) {
-            renderStrength = currentStrength;
-            renderEndTime = currentEndTime;
-        }
-
-        long remaining = renderEndTime - Util.getMeasuringTimeMs();
+        final long remaining = currentEndTime - System.currentTimeMillis();
 
         if (remaining <= 0) {
             synchronized (LOCK) {
@@ -45,8 +36,8 @@ public class FlashEffectRenderer {
             return;
         }
 
-        float progress = 1 - (remaining / (BASE_DURATION * renderStrength));
-        float alpha = renderStrength * (float) Math.pow(1 - progress, 0.5);
+        float progress = 1 - (remaining / (BASE_DURATION * currentStrength));
+        float alpha = currentStrength * (float) Math.sqrt(1 - progress);
 
         if (alpha > MIN_ALPHA) {
             int width = context.getScaledWindowWidth();
