@@ -55,6 +55,7 @@ public class RPItemsGroup {
                         entries.add(RPBlocks.EXPLOSION_ABSORBER_BLOCK);
                         entries.add(RPBlocks.ELEVATOR_BLOCK);
 
+                        entries.add(FRAG_GRENADE);
                         entries.add(SMOKE_GRENADE);
                         entries.add(FLASH_GRENADE);
                         entries.add(INCENDIARY_GRENADE);

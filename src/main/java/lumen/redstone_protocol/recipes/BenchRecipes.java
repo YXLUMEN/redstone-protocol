@@ -400,6 +400,16 @@ public class BenchRecipes extends FabricRecipeProvider {
                 .criterion(FabricRecipeProvider.hasItem(RPItems.INCENDIARY_GRENADE), FabricRecipeProvider.conditionsFromItem(RPItems.INCENDIARY_GRENADE))
                 .offerTo(recipeExporter);
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, RPItems.FRAG_GRENADE, 1)
+                .pattern("IRI")
+                .pattern("IGI")
+                .pattern("III")
+                .input('I', Items.IRON_NUGGET)
+                .input('G', Items.IRON_INGOT)
+                .input('R', Items.REDSTONE)
+                .criterion(FabricRecipeProvider.hasItem(RPItems.FRAG_GRENADE), FabricRecipeProvider.conditionsFromItem(RPItems.FRAG_GRENADE))
+                .offerTo(recipeExporter);
+
         // 原版增强
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Items.DEEPSLATE, 1)
                 .pattern("CC")

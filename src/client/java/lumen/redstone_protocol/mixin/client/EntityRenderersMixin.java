@@ -23,5 +23,6 @@ public abstract class EntityRenderersMixin {
         register(RPEntities.SMOKE_GRENADE_ENTITY_ENTITY, FlyingItemEntityRenderer::new);
         register(RPEntities.GRENADE_ENTITY_ENTITY, FlyingItemEntityRenderer::new);
         register(RPEntities.INCENDIARY_GRENADE_ENTITY_ENTITY, FlyingItemEntityRenderer::new);
+        register(RPEntities.FRAG_GRENADE_ENTITY_ENTITY, FlyingItemEntityRenderer::new);
     }
 }

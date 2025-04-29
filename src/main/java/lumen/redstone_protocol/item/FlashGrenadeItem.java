@@ -40,10 +40,10 @@ public class FlashGrenadeItem extends Item implements ProjectileItem {
 
         if (!world.isClient) {
             float speed = user.isSneaking() ? 0.5F : 1.5F;
-            FlashGrenadeEntity smokeBombEntity = new FlashGrenadeEntity(world, user);
-            smokeBombEntity.setItem(itemStack);
-            smokeBombEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0F, speed, 1.0F);
-            world.spawnEntity(smokeBombEntity);
+            FlashGrenadeEntity entity = new FlashGrenadeEntity(world, user);
+            entity.setItem(itemStack);
+            entity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0F, speed, 1.0F);
+            world.spawnEntity(entity);
         }
 
         itemStack.decrementUnlessCreative(1, user);
@@ -52,8 +52,8 @@ public class FlashGrenadeItem extends Item implements ProjectileItem {
 
     @Override
     public ProjectileEntity createEntity(World world, Position pos, ItemStack stack, Direction direction) {
-        FlashGrenadeEntity smokeBombEntity = new FlashGrenadeEntity(world, pos.getX(), pos.getY(), pos.getZ());
-        smokeBombEntity.setItem(stack);
-        return smokeBombEntity;
+        FlashGrenadeEntity entity = new FlashGrenadeEntity(world, pos.getX(), pos.getY(), pos.getZ());
+        entity.setItem(stack);
+        return entity;
     }
 }

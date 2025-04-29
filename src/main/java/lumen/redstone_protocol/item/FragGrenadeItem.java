@@ -1,6 +1,6 @@
 package lumen.redstone_protocol.item;
 
-import lumen.redstone_protocol.entities.SmokeGrenadeEntity;
+import lumen.redstone_protocol.entities.FragGrenadeEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.Item;
@@ -14,10 +14,10 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Position;
 import net.minecraft.world.World;
 
-public class SmokeGrenadeItem extends Item implements ProjectileItem {
-    private static final int COOLDOWN_TICKS = 20 * 3;
+public class FragGrenadeItem extends Item implements ProjectileItem {
+    private static final int COOLDOWN_TICKS = 20;
 
-    public SmokeGrenadeItem(Item.Settings settings) {
+    public FragGrenadeItem(Item.Settings settings) {
         super(settings);
     }
 
@@ -40,7 +40,7 @@ public class SmokeGrenadeItem extends Item implements ProjectileItem {
 
         if (!world.isClient) {
             float speed = user.isSneaking() ? 0.5F : 1.5F;
-            SmokeGrenadeEntity entity = new SmokeGrenadeEntity(world, user);
+            FragGrenadeEntity entity = new FragGrenadeEntity(world, user);
             entity.setItem(itemStack);
             entity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0F, speed, 1.0F);
             world.spawnEntity(entity);
@@ -52,7 +52,7 @@ public class SmokeGrenadeItem extends Item implements ProjectileItem {
 
     @Override
     public ProjectileEntity createEntity(World world, Position pos, ItemStack stack, Direction direction) {
-        SmokeGrenadeEntity entity = new SmokeGrenadeEntity(world, pos.getX(), pos.getY(), pos.getZ());
+        FragGrenadeEntity entity = new FragGrenadeEntity(world, pos.getX(), pos.getY(), pos.getZ());
         entity.setItem(stack);
         return entity;
     }

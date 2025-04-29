@@ -1,23 +1,19 @@
 package lumen.redstone_protocol.entities;
 
 import lumen.redstone_protocol.item.RPItems;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.FireBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
+import net.minecraft.world.explosion.Explosion;
 
 public class IncendiaryGrenadeEntity extends AbstractGrenadeEntity {
     private static final short EFFECT_DURATION = 6;
-    private static final short EFFECT_SQUARED = EFFECT_DURATION * EFFECT_DURATION;
 
     public IncendiaryGrenadeEntity(EntityType<? extends IncendiaryGrenadeEntity> entityType, World world) {
         super(entityType, world);
@@ -33,25 +29,28 @@ public class IncendiaryGrenadeEntity extends AbstractGrenadeEntity {
 
     @Override
     protected void explode() {
-        if (this.getWorld().isClient) return;
-        ServerWorld world = (ServerWorld) this.getWorld();
+        World world = this.getWorld();
 
-        BlockPos center = this.getBlockPos();
-        world.spawnParticles(ParticleTypes.LAVA, center.getX(), center.getY() + 1, center.getZ(),
-                10, 0.2, 0.2, 0.2, 0.05);
+        world.createExplosion(
+                this,
+                Explosion.createDamageSource(this.getWorld(), this),
+                null,
+                this.getX(),
+                this.getY(),
+                this.getZ(),
+                3.0F,
+                true,
+                World.ExplosionSourceType.NONE,
+                ParticleTypes.LAVA,
+                ParticleTypes.EXPLOSION,
+                SoundEvents.ENTITY_GENERIC_EXPLODE
+        );
 
-        world.playSound(null, getBlockPos(),
-                SoundEvents.ENTITY_DRAGON_FIREBALL_EXPLODE, SoundCategory.BLOCKS, 1.0f, 1.5f);
-
-        BlockPos.stream(center.add(-EFFECT_DURATION, -EFFECT_DURATION, -EFFECT_DURATION),
-                        center.add(EFFECT_DURATION, EFFECT_DURATION, EFFECT_DURATION))
-                .filter(pos -> center.getSquaredDistance(pos) <= EFFECT_SQUARED)
-                .filter(pos -> world.getBlockState(pos).isAir())
-                .forEach(pos -> world.setBlockState(pos, Blocks.FIRE.getDefaultState().with(FireBlock.AGE, 15)));
-
-        Box explosionBox = new Box(center).expand(EFFECT_DURATION);
-        world.getEntitiesByClass(Entity.class, explosionBox, entity -> entity instanceof LivingEntity)
-                .forEach(entity -> entity.setOnFireFor(20));
+        if (world instanceof ServerWorld serverWorld) {
+            Box explosionBox = new Box(this.getBlockPos()).expand(EFFECT_DURATION);
+            serverWorld.getEntitiesByClass(Entity.class, explosionBox, entity -> entity instanceof LivingEntity)
+                    .forEach(entity -> entity.setOnFireFor(20));
+        }
 
         this.discard();
     }
