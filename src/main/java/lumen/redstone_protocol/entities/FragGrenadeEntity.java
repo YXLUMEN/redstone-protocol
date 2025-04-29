@@ -1,13 +1,14 @@
 package lumen.redstone_protocol.entities;
 
 import lumen.redstone_protocol.item.RPItems;
+import lumen.redstone_protocol.util.FragmentRayCaster;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
-import net.minecraft.particle.ParticleTypes;
-import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
-import net.minecraft.world.explosion.Explosion;
 
 public class FragGrenadeEntity extends AbstractGrenadeEntity {
     private static final float POWER = 3.0f;
@@ -18,11 +19,11 @@ public class FragGrenadeEntity extends AbstractGrenadeEntity {
     }
 
     public FragGrenadeEntity(World world, LivingEntity owner) {
-        super(RPEntities.FRAG_GRENADE_ENTITY_ENTITY, world, owner);
+        super(RPEntities.FRAG_GRENADE_ENTITY, world, owner);
     }
 
     public FragGrenadeEntity(World world, double x, double y, double z) {
-        super(RPEntities.FRAG_GRENADE_ENTITY_ENTITY, world, x, y, z);
+        super(RPEntities.FRAG_GRENADE_ENTITY, world, x, y, z);
     }
 
     @Override
@@ -30,36 +31,44 @@ public class FragGrenadeEntity extends AbstractGrenadeEntity {
         World world = this.getWorld();
 
         world.createExplosion(this,
-                Explosion.createDamageSource(this.getWorld(), this),
-                null,
                 this.getX(), this.getY(), this.getZ(),
                 POWER,
                 false,
-                World.ExplosionSourceType.NONE,
-                ParticleTypes.EXPLOSION,
-                ParticleTypes.EXPLOSION_EMITTER,
-                SoundEvents.ENTITY_GENERIC_EXPLODE
+                World.ExplosionSourceType.NONE
         );
 
+        Entity owner = this.getOwner() == null ? this : this.getOwner();
+        Vec3d start = this.getPos().add(0, 0.2, 0);
+
         for (int i = 0; i < FRAG_COUNT; i++) {
-            FragmentEntity fragment = new FragmentEntity(this.getOwner(), world, this.getX(), this.getY(), this.getZ());
-            fragment.setInvulnerable(true);
-
-            double theta = random.nextDouble() * Math.PI * 2;
-            double phi = Math.acos(2 * random.nextDouble() - 1);
-
-            double speed = 0.5 + random.nextDouble() * 1.5;
-
-            fragment.setVelocity(
-                    Math.sin(phi) * Math.cos(theta) * speed,
-                    Math.cos(phi) * speed,
-                    Math.sin(phi) * Math.sin(theta) * speed
+            Vec3d randomDir = getUniformRandomDirection(this.random);
+            FragmentRayCaster.cast(
+                    world,
+                    start,
+                    randomDir,
+                    16.0f,
+                    owner,
+                    this
             );
-
-            world.spawnEntity(fragment);
         }
 
         this.discard();
+    }
+
+    public static Vec3d getUniformRandomDirection(Random random) {
+        final double goldenRatio = (1 + Math.sqrt(5)) / 2;
+        final double angleIncrement = Math.PI * 2 * goldenRatio;
+
+        double y = 1 - (random.nextDouble() * 2); // y ∈ [-1, 1]
+        double radius = Math.sqrt(1 - y * y);
+
+        double theta = angleIncrement * random.nextDouble();
+
+        return new Vec3d(
+                Math.cos(theta) * radius,
+                y,
+                Math.sin(theta) * radius
+        ).normalize();
     }
 
     @Override

@@ -86,7 +86,6 @@ public class SmokeEffectAreaEntity extends Entity {
         } else if (this.age < PHASE2_DURATION) {
             diffusionFactor = 1.0f;
             smokeDensity.put(origin, 0.8f);
-            serverWorld.playSound(null, this.getBlockPos(), SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 0.5f, 1.5f);
         } else {
             diffusionFactor = 0.8f;
         }

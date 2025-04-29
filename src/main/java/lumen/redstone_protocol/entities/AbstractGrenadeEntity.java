@@ -1,5 +1,6 @@
 package lumen.redstone_protocol.entities;
 
+import lumen.redstone_protocol.sounds.RPSoundEvents;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.data.DataTracker;
@@ -7,26 +8,32 @@ import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.util.hit.BlockHitResult;
+import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public abstract class AbstractGrenadeEntity extends ThrownItemEntity {
     private static final TrackedData<Integer> FUSE = DataTracker.registerData(AbstractGrenadeEntity.class, TrackedDataHandlerRegistry.INTEGER);
+    private boolean fusing = true;
 
     private short bounceCount = 0;
 
     public AbstractGrenadeEntity(EntityType<? extends AbstractGrenadeEntity> entityType, World world) {
         super(entityType, world);
+        if (isInstant()) this.fusing = false;
     }
 
     public AbstractGrenadeEntity(EntityType<? extends AbstractGrenadeEntity> entity, World world, LivingEntity owner) {
         super(entity, owner, world);
+        if (isInstant()) this.fusing = false;
     }
 
     public AbstractGrenadeEntity(EntityType<? extends AbstractGrenadeEntity> entity, World world, double x, double y, double z) {
         super(entity, x, y, z, world);
+        if (isInstant()) this.fusing = false;
     }
 
     @Override
@@ -40,6 +47,9 @@ public abstract class AbstractGrenadeEntity extends ThrownItemEntity {
 
         Vec3d currentVelocity = this.getVelocity();
         Vec3d bounceVelocity = calculateBounceVelocity(blockHitResult, currentVelocity);
+        getWorld().playSound(null, this.getBlockPos(), RPSoundEvents.GRENADE_BOUNCE, SoundCategory.NEUTRAL,
+                0.5F,
+                0.4F / (getRandom().nextFloat() * 0.4F + 0.8F));
 
         this.setVelocity(bounceVelocity);
         this.bounceCount++;
@@ -48,6 +58,7 @@ public abstract class AbstractGrenadeEntity extends ThrownItemEntity {
     @Override
     public void tick() {
         super.tick();
+        if (!this.fusing) return;
 
         int fuse = this.dataTracker.get(FUSE) - 1;
         this.dataTracker.set(FUSE, fuse);
@@ -79,6 +90,12 @@ public abstract class AbstractGrenadeEntity extends ThrownItemEntity {
     }
 
     @Override
+    protected void onCollision(HitResult hitResult) {
+        super.onCollision(hitResult);
+        if (isInstant()) this.fusing = true;
+    }
+
+    @Override
     protected void initDataTracker(DataTracker.Builder builder) {
         super.initDataTracker(builder);
         builder.add(FUSE, getDefaultFuse());
@@ -87,4 +104,8 @@ public abstract class AbstractGrenadeEntity extends ThrownItemEntity {
     protected abstract int getDefaultFuse();
 
     protected abstract short getMaxBounces();
+
+    protected boolean isInstant() {
+        return false;
+    }
 }

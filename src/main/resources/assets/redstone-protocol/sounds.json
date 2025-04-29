@@ -1,0 +1,32 @@
+{
+  "bullet_ricochet": {
+    "subtitle": "sound.redstone-protocol.bullet_ricochet",
+    "sounds": [
+      "redstone-protocol:bullet_ricochet"
+    ]
+  },
+  "gas": {
+    "subtitle": "sound.redstone-protocol.gas",
+    "sounds": [
+      "redstone-protocol:gas"
+    ]
+  },
+  "pull_bin": {
+    "subtitle": "sound.redstone-protocol.pull_bin",
+    "sounds": [
+      "redstone-protocol:pull_bin"
+    ]
+  },
+  "throw_grenade": {
+    "subtitle": "sound.redstone-protocol.throw_grenade",
+    "sounds": [
+      "redstone-protocol:throw_grenade"
+    ]
+  },
+  "grenade_bounce": {
+    "subtitle": "sound.redstone-protocol.grenade_bounce",
+    "sounds": [
+      "redstone-protocol:grenade_bounce"
+    ]
+  }
+}

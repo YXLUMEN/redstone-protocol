@@ -8,6 +8,7 @@ import lumen.redstone_protocol.entities.RPEntities;
 import lumen.redstone_protocol.item.RPItems;
 import lumen.redstone_protocol.network.RPNetwork;
 import lumen.redstone_protocol.screen_handler.RPScreenHandler;
+import lumen.redstone_protocol.sounds.RPSoundEvents;
 import lumen.redstone_protocol.util.ElevatorCooldownHandler;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
@@ -32,6 +33,7 @@ public class RedstoneProtocol implements ModInitializer {
         RPEntities.registerEntities();
         RPBlockEntities.registerBlockEntities();
         RPEffects.registerEffects();
+        RPSoundEvents.registerSounds();
 
         RPScreenHandler.registerScreenHandler();
 

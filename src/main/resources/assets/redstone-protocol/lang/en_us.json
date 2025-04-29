@@ -44,7 +44,8 @@
   "entity.redstone-protocol.flash_grenade": "Flash Grenade",
   "entity.redstone-protocol.incendiary_grenade": "Incendiary Grenade",
   "entity.redstone-protocol.frag_grenade": "Frag Grenade",
-  "entity.redstone-protocol.fragment": "Fragment",
   "effect.redstone-protocol.flashed": "Flashed",
+  "sound.redstone-protocol.grenade_bounce": "Grenade Bounce",
+  "sound.redstone-protocol.gas": "Gas",
   "container.item_collector": "Item Collector"
 }

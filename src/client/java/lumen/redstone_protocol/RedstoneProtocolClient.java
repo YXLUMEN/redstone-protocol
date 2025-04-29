@@ -25,7 +25,6 @@ public class RedstoneProtocolClient implements ClientModInitializer {
         FlashEffectClientPacket.register();
 
         EntityRendererRegistry.register(RPEntities.SMOKE_EFFECT_AREA, EmptyEntityRender::new);
-        EntityRendererRegistry.register(RPEntities.FRAGMENT_ENTITY, EmptyEntityRender::new);
 
         BlockEntityRendererFactories.register(RPBlockEntities.LASER_GEN_ENTITY, LaserGenBlockEntityRender::new);
         HandledScreens.register(RPScreenHandler.ITEM_COLLECTOR_SCREEN_HANDLER_SCREEN_HANDLER_TYPE, ItemCollectorScreen::new);

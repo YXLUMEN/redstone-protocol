@@ -35,11 +35,11 @@ public class FlashGrenadeEntity extends AbstractGrenadeEntity {
     }
 
     public FlashGrenadeEntity(World world, LivingEntity owner) {
-        super(RPEntities.GRENADE_ENTITY_ENTITY, world, owner);
+        super(RPEntities.FLASH_GRENADE_ENTITY, world, owner);
     }
 
     public FlashGrenadeEntity(World world, double x, double y, double z) {
-        super(RPEntities.GRENADE_ENTITY_ENTITY, world, x, y, z);
+        super(RPEntities.FLASH_GRENADE_ENTITY, world, x, y, z);
     }
 
     @Override

@@ -1,13 +1,13 @@
 package lumen.redstone_protocol.entities;
 
 import lumen.redstone_protocol.item.RPItems;
+import lumen.redstone_protocol.sounds.RPSoundEvents;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -20,11 +20,11 @@ public class SmokeGrenadeEntity extends AbstractGrenadeEntity {
     }
 
     public SmokeGrenadeEntity(World world, LivingEntity owner) {
-        super(RPEntities.SMOKE_GRENADE_ENTITY_ENTITY, world, owner);
+        super(RPEntities.SMOKE_GRENADE_ENTITY, world, owner);
     }
 
     public SmokeGrenadeEntity(World world, double x, double y, double z) {
-        super(RPEntities.SMOKE_GRENADE_ENTITY_ENTITY, world, x, y, z);
+        super(RPEntities.SMOKE_GRENADE_ENTITY, world, x, y, z);
     }
 
     @Override
@@ -46,7 +46,7 @@ public class SmokeGrenadeEntity extends AbstractGrenadeEntity {
                 0, 0, 0, 0);
 
         serverWorld.playSound(null, getBlockPos(),
-                SoundEvents.ENTITY_DRAGON_FIREBALL_EXPLODE, SoundCategory.BLOCKS, 0.8f, 1.0f);
+                RPSoundEvents.GAS, SoundCategory.BLOCKS, 0.8f, 1.0f);
 
         SmokeEffectAreaEntity effectArea = new SmokeEffectAreaEntity(world, pos, 8);
         serverWorld.spawnEntity(effectArea);

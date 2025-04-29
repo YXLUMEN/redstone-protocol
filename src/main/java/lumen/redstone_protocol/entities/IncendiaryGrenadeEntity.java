@@ -20,11 +20,11 @@ public class IncendiaryGrenadeEntity extends AbstractGrenadeEntity {
     }
 
     public IncendiaryGrenadeEntity(World world, LivingEntity owner) {
-        super(RPEntities.INCENDIARY_GRENADE_ENTITY_ENTITY, world, owner);
+        super(RPEntities.INCENDIARY_GRENADE_ENTITY, world, owner);
     }
 
     public IncendiaryGrenadeEntity(World world, double x, double y, double z) {
-        super(RPEntities.INCENDIARY_GRENADE_ENTITY_ENTITY, world, x, y, z);
+        super(RPEntities.INCENDIARY_GRENADE_ENTITY, world, x, y, z);
     }
 
     @Override

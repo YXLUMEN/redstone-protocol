@@ -44,7 +44,8 @@
   "entity.redstone-protocol.flash_grenade": "闪光弹",
   "entity.redstone-protocol.incendiary_grenade": "燃烧弹",
   "entity.redstone-protocol.frag_grenade": "破片手雷",
-  "entity.redstone-protocol.fragment": "破片",
   "effect.redstone-protocol.flashed": "炫光",
+  "sound.redstone-protocol.grenade_bounce": "手雷弹跳",
+  "sound.redstone-protocol.gas": "气体释放",
   "container.item_collector": "物品收集器"
 }
