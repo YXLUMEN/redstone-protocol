@@ -12,15 +12,17 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class FragmentEntity extends Entity {
+    private Entity owner = null;
     private short life = 200;
 
     public FragmentEntity(EntityType<? extends FragmentEntity> entityType, World world) {
         super(entityType, world);
     }
 
-    public FragmentEntity(World world, double x, double y, double z) {
+    public FragmentEntity(Entity owner, World world, double x, double y, double z) {
         super(RPEntities.FRAGMENT_ENTITY, world);
         this.setPosition(x, y, z);
+        this.owner = owner;
     }
 
     @Override
@@ -36,14 +38,15 @@ public class FragmentEntity extends Entity {
         if (world.isClient) return;
 
         Box box = this.getBoundingBox();
-        List<Entity> entities = world.getOtherEntities(null, box.expand(0.2));
+        List<LivingEntity> entities = world.getEntitiesByClass(LivingEntity.class, box.expand(0.2), e -> true);
 
-        for (Entity entity : entities) {
-            if (entity instanceof LivingEntity living) {
-                living.damage(this.getDamageSources().explosion(this, null), 4.0f);
-                this.discard();
-                break;
-            }
+        for (LivingEntity entity : entities) {
+            entity.timeUntilRegen = 0;
+            entity.hurtTime = 0;
+            entity.damage(this.getDamageSources().explosion(this, this.owner), 4.0f);
+            this.discard();
+            break;
+
         }
 
         if (--this.life <= 0) this.discard();

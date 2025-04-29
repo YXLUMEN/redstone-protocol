@@ -42,7 +42,7 @@ public class FragGrenadeEntity extends AbstractGrenadeEntity {
         );
 
         for (int i = 0; i < FRAG_COUNT; i++) {
-            FragmentEntity fragment = new FragmentEntity(world, this.getX(), this.getY(), this.getZ());
+            FragmentEntity fragment = new FragmentEntity(this.getOwner(), world, this.getX(), this.getY(), this.getZ());
             fragment.setInvulnerable(true);
 
             double theta = random.nextDouble() * Math.PI * 2;
