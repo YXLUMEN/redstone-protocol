@@ -5,15 +5,14 @@ import lumen.redstone_protocol.util.FragmentRayCaster;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
-import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
-import static lumen.redstone_protocol.entities.FragGrenadeEntity.getUniformRandomDirection;
+import static lumen.redstone_protocol.entities.FragGrenadeEntity.getRandomDirection;
 
 public class Howitzer152Entity extends AbstractGrenadeEntity {
-    private static final float POWER = 32;
-    private static final short FRAG_COUNT = 128;
+    private static final float POWER = 64;
+    private static final short FRAG_COUNT = 256;
 
     public Howitzer152Entity(EntityType<? extends AbstractGrenadeEntity> entityType, World world) {
         super(entityType, world);
@@ -35,13 +34,13 @@ public class Howitzer152Entity extends AbstractGrenadeEntity {
                 this.getX(), this.getY(), this.getZ(),
                 POWER,
                 true,
-                World.ExplosionSourceType.TNT
+                World.ExplosionSourceType.NONE
         );
 
         Vec3d start = this.getPos().add(0, 0.2, 0);
 
         for (int i = 0; i < FRAG_COUNT; i++) {
-            Vec3d randomDir = getUniformRandomDirection(this.random);
+            Vec3d randomDir = getRandomDirection(this.random);
             FragmentRayCaster.cast(
                     world,
                     start,

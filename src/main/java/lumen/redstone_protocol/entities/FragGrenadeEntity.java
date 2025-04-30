@@ -11,7 +11,7 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 
 public class FragGrenadeEntity extends AbstractGrenadeEntity {
-    private static final float POWER = 3.0f;
+    private static final float POWER = 4.0f;
     private static final short FRAG_COUNT = 36;
 
     public FragGrenadeEntity(EntityType<? extends AbstractGrenadeEntity> entityType, World world) {
@@ -38,10 +38,10 @@ public class FragGrenadeEntity extends AbstractGrenadeEntity {
         );
 
         Entity owner = this.getOwner() == null ? this : this.getOwner();
-        Vec3d start = this.getPos().add(0, 0.2, 0);
+        Vec3d start = this.getPos().add(0, 0.5, 0);
 
         for (int i = 0; i < FRAG_COUNT; i++) {
-            Vec3d randomDir = getUniformRandomDirection(this.random);
+            Vec3d randomDir = getRandomDirection(this.random);
             FragmentRayCaster.cast(
                     world,
                     start,
@@ -55,14 +55,10 @@ public class FragGrenadeEntity extends AbstractGrenadeEntity {
         this.discard();
     }
 
-    public static Vec3d getUniformRandomDirection(Random random) {
-        final double goldenRatio = (1 + Math.sqrt(5)) / 2;
-        final double angleIncrement = Math.PI * 2 * goldenRatio;
-
-        double y = 1 - (random.nextDouble() * 2); // y ∈ [-1, 1]
+    public static Vec3d getRandomDirection(Random random) {
+        double y = 1 - (random.nextDouble() * 2);
         double radius = Math.sqrt(1 - y * y);
-
-        double theta = angleIncrement * random.nextDouble();
+        double theta = random.nextDouble() * (2 * Math.PI);
 
         return new Vec3d(
                 Math.cos(theta) * radius,

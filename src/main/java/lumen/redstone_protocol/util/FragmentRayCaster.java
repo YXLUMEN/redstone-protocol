@@ -37,12 +37,12 @@ public class FragmentRayCaster {
         int bounces = MAX_BOUNCES;
         Random random = owner.getRandom();
 
-        while (bounces-- >= 0 && remainingDamage > 0.5f) {
+        while (bounces-- > 0 && remainingDamage > 0.5f) {
             Vec3d end = pos.add(rayDir.multiply(RAY_LENGTH));
 
             EntityHitResult entityHit = ProjectileUtil.raycast(
                     grenade, pos, end,
-                    new Box(pos, end).expand(0.4),
+                    new Box(pos, end).expand(0.5),
                     e -> !e.isSpectator() && e.isAlive() && e.canHit(),
                     0.4f
             );
@@ -76,11 +76,11 @@ public class FragmentRayCaster {
                 // 吸收
                 break;
             } else {
-                // 穿透
+                // 穿透, 实际上穿透数量很多
                 pos = blockHit.getPos().add(rayDir.multiply(0.5));
                 remainingDamage = Math.max(0.3f, 1 - hardness / 10f);
                 if (world instanceof ServerWorld serverWorld) {
-                    serverWorld.spawnParticles(ParticleTypes.END_ROD, pos.x, pos.y, pos.z, 1, 0, 0, 0, 0);
+                    serverWorld.spawnParticles(ParticleTypes.CRIT, pos.x, pos.y, pos.z, 1, 0, 0, 0, 0);
                 }
             }
         }
@@ -99,18 +99,11 @@ public class FragmentRayCaster {
     }
 
     private static boolean shouldBounce(float hardness, float damage, Random random) {
-        // 计算硬度影响 (0-1)
         float hardnessFactor = Math.min(1, hardness / HARD_THRESHOLD);
-
-        // 计算伤害影响 (高伤害降低反弹几率)
         float damageFactor = 1 / (1 + DAMAGE_INFLUENCE * damage);
-
-        // 随机波动 (±20%)
         float randomVariation = 1 + (random.nextFloat() * 2 - 1) * RANDOM_VARIATION;
 
-        float bounceProbability = (hardnessFactor * 0.5f +
-                damageFactor * (1 - 0.5f)) *
-                randomVariation;
+        float bounceProbability = (0.5f * (hardnessFactor + damageFactor)) * randomVariation;
 
         bounceProbability = MathHelper.clamp(bounceProbability, MIN_BOUNCE_CHANCE, MAX_BOUNCE_CHANCE);
 
@@ -128,5 +121,28 @@ public class FragmentRayCaster {
         float angle = random.nextFloat() * SCATTER_ANGLE;
         return reflected.rotateX(angle * (random.nextBoolean() ? 1 : -1))
                 .rotateY(angle * (random.nextBoolean() ? 1 : -1));
+    }
+
+    // debug
+    public static void drawRay(ServerWorld world, Vec3d start, Vec3d end, float density) {
+        Vec3d direction = end.subtract(start);
+        double length = direction.length();
+        direction = direction.normalize();
+
+        int particleCount = (int) (length * density);
+        if (particleCount <= 0) return;
+
+        double step = length / particleCount;
+
+        for (int i = 0; i <= particleCount; i++) {
+            Vec3d pos = start.add(direction.multiply(i * step));
+            world.spawnParticles(
+                    ParticleTypes.END_ROD,
+                    pos.x, pos.y, pos.z,
+                    1,
+                    0, 0, 0,
+                    0
+            );
+        }
     }
 }

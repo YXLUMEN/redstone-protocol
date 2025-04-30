@@ -26,6 +26,7 @@ import net.minecraft.world.World;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.WeakHashMap;
 
 public class SmokeEffectAreaEntity extends Entity {
     private static final int PHASE1_DURATION = 20;
@@ -45,6 +46,7 @@ public class SmokeEffectAreaEntity extends Entity {
     private int nextSpreadTick = 0;
 
     private Map<BlockPos, Float> smokeDensity = new HashMap<>();
+    private final WeakHashMap<MobEntity, Boolean> disableAi = new WeakHashMap<>();
 
     public SmokeEffectAreaEntity(EntityType<? extends SmokeEffectAreaEntity> entityType, World world) {
         super(entityType, world);
@@ -64,7 +66,7 @@ public class SmokeEffectAreaEntity extends Entity {
         super.tick();
         this.age++;
         if (this.age >= getAdjustedDuration()) {
-            this.discard();
+            this.discardSmoke();
             return;
         }
 
@@ -76,7 +78,7 @@ public class SmokeEffectAreaEntity extends Entity {
 
         if (smokeDensity.isEmpty()) {
             serverWorld.playSound(null, this.getBlockPos(), SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 0.5f, 1.0f);
-            this.discard();
+            this.discardSmoke();
             return;
         }
 
@@ -146,16 +148,18 @@ public class SmokeEffectAreaEntity extends Entity {
         world.getEntitiesByClass(LivingEntity.class, box, Entity::isOnFire).forEach(Entity::extinguish);
     }
 
-    private static void blindEntity(ServerWorld world, BlockPos pos) {
+    private void blindEntity(ServerWorld world, BlockPos pos) {
         Box effectBox = new Box(pos).expand(0.75);
         for (LivingEntity entity : world.getEntitiesByClass(LivingEntity.class, effectBox, livingEntity -> true)) {
             if ((entity instanceof PlayerEntity player) && (player.isSpectator() || player.isCreative())) {
                 continue;
             }
 
-            if (entity instanceof MobEntity mob) {
+            if (entity instanceof MobEntity mob && this.disableAi.get(mob) == null) {
                 mob.setTarget(null);
                 mob.setAttacking(false);
+                mob.setAiDisabled(true);
+                this.disableAi.put(mob, true);
             }
 
             entity.addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS,
@@ -164,6 +168,15 @@ public class SmokeEffectAreaEntity extends Entity {
             entity.addStatusEffect(new StatusEffectInstance(RPEffects.SMOKE_CLOAK,
                     40, 0, false, false, false));
         }
+    }
+
+    private void discardSmoke() {
+        for (MobEntity mob : this.disableAi.keySet()) {
+            if (mob == null) continue;
+            mob.setAiDisabled(false);
+        }
+        this.disableAi.clear();
+        this.discard();
     }
 
     private static void spawnParticles(ServerWorld world, BlockPos pos, float density, Random random) {
