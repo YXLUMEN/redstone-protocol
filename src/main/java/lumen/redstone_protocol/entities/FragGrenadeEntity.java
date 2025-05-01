@@ -1,8 +1,7 @@
 package lumen.redstone_protocol.entities;
 
 import lumen.redstone_protocol.item.RPItems;
-import lumen.redstone_protocol.util.FragmentRayCaster;
-import net.minecraft.entity.Entity;
+import lumen.redstone_protocol.util.TrajectoryRayCaster;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
@@ -11,8 +10,8 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 
 public class FragGrenadeEntity extends AbstractGrenadeEntity {
-    private static final float POWER = 4.0f;
-    private static final short FRAG_COUNT = 36;
+    private static final float POWER = 3.0f;
+    private static final short FRAG_COUNT = 32;
 
     public FragGrenadeEntity(EntityType<? extends AbstractGrenadeEntity> entityType, World world) {
         super(entityType, world);
@@ -37,18 +36,15 @@ public class FragGrenadeEntity extends AbstractGrenadeEntity {
                 World.ExplosionSourceType.NONE
         );
 
-        Entity owner = this.getOwner() == null ? this : this.getOwner();
-        Vec3d start = this.getPos().add(0, 0.5, 0);
-
+        Vec3d startPos = this.getPos().add(0, 0.5, 0);
         for (int i = 0; i < FRAG_COUNT; i++) {
             Vec3d randomDir = getRandomDirection(this.random);
-            FragmentRayCaster.cast(
+            TrajectoryRayCaster.rayCast(
                     world,
-                    start,
+                    this,
+                    startPos,
                     randomDir,
-                    16.0f,
-                    owner,
-                    this
+                    16.0f
             );
         }
 

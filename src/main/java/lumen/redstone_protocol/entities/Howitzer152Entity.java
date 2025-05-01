@@ -1,10 +1,11 @@
 package lumen.redstone_protocol.entities;
 
 import lumen.redstone_protocol.item.RPItems;
-import lumen.redstone_protocol.util.FragmentRayCaster;
+import lumen.redstone_protocol.util.TrajectoryRayCaster;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
@@ -37,18 +38,18 @@ public class Howitzer152Entity extends AbstractGrenadeEntity {
                 World.ExplosionSourceType.NONE
         );
 
-        Vec3d start = this.getPos().add(0, 0.2, 0);
-
-        for (int i = 0; i < FRAG_COUNT; i++) {
-            Vec3d randomDir = getRandomDirection(this.random);
-            FragmentRayCaster.cast(
-                    world,
-                    start,
-                    randomDir,
-                    200.0f,
-                    this,
-                    this
-            );
+        if (world instanceof ServerWorld serverWorld) {
+            Vec3d start = this.getPos().add(0, 0.2, 0);
+            for (int i = 0; i < FRAG_COUNT; i++) {
+                Vec3d randomDir = getRandomDirection(this.random);
+                TrajectoryRayCaster.rayCast(
+                        serverWorld,
+                        this,
+                        start,
+                        randomDir,
+                        200.0f
+                );
+            }
         }
 
         this.discard();
