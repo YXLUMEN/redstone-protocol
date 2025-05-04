@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "G": {
+      "item": "minecraft:golden_apple"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "L": {
+      "item": "minecraft:lapis_lazuli"
+    }
+  },
+  "pattern": [
+    "ILI",
+    "IGI",
+    "ILI"
+  ],
+  "result": {
+    "count": 1,
+    "id": "redstone-protocol:battery"
+  }
+}

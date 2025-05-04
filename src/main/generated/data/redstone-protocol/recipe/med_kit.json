@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "G": {
+      "item": "minecraft:golden_carrot"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "N": {
+      "item": "minecraft:iron_nugget"
+    },
+    "R": {
+      "item": "minecraft:red_wool"
+    }
+  },
+  "pattern": [
+    "RRR",
+    "RGR",
+    "INI"
+  ],
+  "result": {
+    "count": 1,
+    "id": "redstone-protocol:med_kit"
+  }
+}

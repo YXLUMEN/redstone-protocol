@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "E": {
+      "item": "minecraft:enchanted_golden_apple"
+    },
+    "G": {
+      "item": "minecraft:golden_carrot"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "L": {
+      "item": "minecraft:lapis_lazuli"
+    }
+  },
+  "pattern": [
+    "ILI",
+    "GEG",
+    "ILI"
+  ],
+  "result": {
+    "count": 1,
+    "id": "redstone-protocol:phoenix_kit"
+  }
+}

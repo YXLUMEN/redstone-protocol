@@ -2,12 +2,15 @@ package lumen.redstone_protocol.entities;
 
 import lumen.redstone_protocol.item.RPItems;
 import lumen.redstone_protocol.util.TrajectoryRayCaster;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
+
+import static lumen.redstone_protocol.util.RayCasterTools.getRandomDirection;
 
 public class FragGrenadeEntity extends AbstractGrenadeEntity {
     private static final float POWER = 3.0f;
@@ -36,31 +39,17 @@ public class FragGrenadeEntity extends AbstractGrenadeEntity {
                 World.ExplosionSourceType.NONE
         );
 
-        Vec3d startPos = this.getPos().add(0, 0.5, 0);
-        for (int i = 0; i < FRAG_COUNT; i++) {
-            Vec3d randomDir = getRandomDirection(this.random);
-            TrajectoryRayCaster.rayCast(
-                    world,
-                    this,
-                    startPos,
-                    randomDir,
-                    16.0f
-            );
+        if (world instanceof ServerWorld serverWorld) {
+            Vec3d startPos = this.getPos().add(0, 0.5, 0);
+            TrajectoryRayCaster rayCaster = new TrajectoryRayCaster(serverWorld, this);
+
+            for (int i = 0; i < FRAG_COUNT; i++) {
+                Vec3d randomDir = getRandomDirection(this.random);
+                rayCaster.rayCast(startPos, randomDir, 8.0f, false);
+            }
         }
 
         this.discard();
-    }
-
-    public static Vec3d getRandomDirection(Random random) {
-        double y = 1 - (random.nextDouble() * 2);
-        double radius = Math.sqrt(1 - y * y);
-        double theta = random.nextDouble() * (2 * Math.PI);
-
-        return new Vec3d(
-                Math.cos(theta) * radius,
-                y,
-                Math.sin(theta) * radius
-        ).normalize();
     }
 
     @Override

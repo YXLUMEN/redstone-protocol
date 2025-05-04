@@ -28,5 +28,95 @@
     "sounds": [
       "redstone-protocol:grenade_bounce"
     ]
+  },
+  "phoenix_kit_charge": {
+    "subtitle": "sound.redstone-protocol.phoenix_kit_charge",
+    "sounds": [
+      "redstone-protocol:phoenix_kit_charge"
+    ]
+  },
+  "battery_charge": {
+    "subtitle": "sound.redstone-protocol.battery_charge",
+    "sounds": [
+      "redstone-protocol:battery_charge"
+    ]
+  },
+  "cell_charge": {
+    "subtitle": "sound.redstone-protocol.cell_charge",
+    "sounds": [
+      "redstone-protocol:cell_charge"
+    ]
+  },
+  "battery_charge_start": {
+    "subtitle": "sound.redstone-protocol.battery_charge_start",
+    "sounds": [
+      "redstone-protocol:battery_charge_start"
+    ]
+  },
+  "battery_charge_fail": {
+    "subtitle": "sound.redstone-protocol.battery_charge_fail",
+    "sounds": [
+      "redstone-protocol:battery_charge_fail"
+    ]
+  },
+  "battery_charge_finish_en": {
+    "subtitle": "sound.redstone-protocol.battery_charge_finish_en",
+    "sounds": [
+      "redstone-protocol:battery_charge_finish_en"
+    ]
+  },
+  "battery_charge_finish_mec": {
+    "subtitle": "sound.redstone-protocol.battery_charge_finish_mec",
+    "sounds": [
+      "redstone-protocol:battery_charge_finish_mec"
+    ]
+  },
+  "kit_start": {
+    "subtitle": "sound.redstone-protocol.kit_start",
+    "sounds": [
+      "redstone-protocol:kit_start"
+    ]
+  },
+  "kit_using": {
+    "subtitle": "sound.redstone-protocol.kit_using",
+    "sounds": [
+      "redstone-protocol:kit_using"
+    ]
+  },
+  "kit_fail": {
+    "subtitle": "sound.redstone-protocol.kit_fail",
+    "sounds": [
+      "redstone-protocol:kit_fail"
+    ]
+  },
+  "kit_finish": {
+    "subtitle": "sound.redstone-protocol.kit_finish",
+    "sounds": [
+      "redstone-protocol:kit_finish"
+    ]
+  },
+  "shield_crash_1": {
+    "subtitle": "sound.redstone-protocol.shield_crash_1",
+    "sounds": [
+      "redstone-protocol:shield_crash_1"
+    ]
+  },
+  "shield_crash_2": {
+    "subtitle": "sound.redstone-protocol.shield_crash_2",
+    "sounds": [
+      "redstone-protocol:shield_crash_2"
+    ]
+  },
+  "shield_crash_3": {
+    "subtitle": "sound.redstone-protocol.shield_crash_3",
+    "sounds": [
+      "redstone-protocol:shield_crash_3"
+    ]
+  },
+  "shield_crash_4": {
+    "subtitle": "sound.redstone-protocol.shield_crash_4",
+    "sounds": [
+      "redstone-protocol:shield_crash_4"
+    ]
   }
 }

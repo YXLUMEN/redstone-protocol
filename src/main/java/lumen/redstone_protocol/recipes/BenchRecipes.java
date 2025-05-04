@@ -410,6 +410,47 @@ public class BenchRecipes extends FabricRecipeProvider {
                 .criterion(FabricRecipeProvider.hasItem(RPItems.FRAG_GRENADE), FabricRecipeProvider.conditionsFromItem(RPItems.FRAG_GRENADE))
                 .offerTo(recipeExporter);
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, RPItems.BATTERY, 1)
+                .pattern("ILI")
+                .pattern("IGI")
+                .pattern("ILI")
+                .input('I', Items.IRON_INGOT)
+                .input('G', Items.GOLDEN_APPLE)
+                .input('L', Items.LAPIS_LAZULI)
+                .criterion(FabricRecipeProvider.hasItem(RPItems.BATTERY), FabricRecipeProvider.conditionsFromItem(RPItems.BATTERY))
+                .offerTo(recipeExporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, RPItems.CELL, 2)
+                .pattern("ILI")
+                .pattern("IGI")
+                .input('I', Items.IRON_INGOT)
+                .input('G', Items.GOLDEN_APPLE)
+                .input('L', Items.LAPIS_LAZULI)
+                .criterion(FabricRecipeProvider.hasItem(RPItems.CELL), FabricRecipeProvider.conditionsFromItem(RPItems.CELL))
+                .offerTo(recipeExporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, RPItems.MED_KIT, 1)
+                .pattern("RRR")
+                .pattern("RGR")
+                .pattern("INI")
+                .input('I', Items.IRON_INGOT)
+                .input('G', Items.GOLDEN_CARROT)
+                .input('R', Items.RED_WOOL)
+                .input('N', Items.IRON_NUGGET)
+                .criterion(FabricRecipeProvider.hasItem(RPItems.MED_KIT), FabricRecipeProvider.conditionsFromItem(RPItems.MED_KIT))
+                .offerTo(recipeExporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, RPItems.PHOENIX_KIT, 1)
+                .pattern("ILI")
+                .pattern("GEG")
+                .pattern("ILI")
+                .input('I', Items.IRON_INGOT)
+                .input('E', Items.ENCHANTED_GOLDEN_APPLE)
+                .input('G', Items.GOLDEN_CARROT)
+                .input('L', Items.LAPIS_LAZULI)
+                .criterion(FabricRecipeProvider.hasItem(RPItems.PHOENIX_KIT), FabricRecipeProvider.conditionsFromItem(RPItems.PHOENIX_KIT))
+                .offerTo(recipeExporter);
+
         // 原版增强
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Items.DEEPSLATE, 1)
                 .pattern("CC")

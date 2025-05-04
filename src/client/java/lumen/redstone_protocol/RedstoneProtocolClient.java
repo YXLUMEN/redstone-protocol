@@ -5,6 +5,7 @@ import lumen.redstone_protocol.block_entity.RPBlockEntities;
 import lumen.redstone_protocol.block_entity_render.LaserGenBlockEntityRender;
 import lumen.redstone_protocol.entities.RPEntities;
 import lumen.redstone_protocol.entity_render.EmptyEntityRender;
+import lumen.redstone_protocol.network.BatteryInterrupt;
 import lumen.redstone_protocol.network.FlashEffectClientPacket;
 import lumen.redstone_protocol.render.FlashEffectRenderer;
 import lumen.redstone_protocol.screen.ItemCollectorScreen;
@@ -23,6 +24,7 @@ public class RedstoneProtocolClient implements ClientModInitializer {
         HudRenderCallback.EVENT.register(FlashEffectRenderer::render);
 
         FlashEffectClientPacket.register();
+        BatteryInterrupt.register();
 
         EntityRendererRegistry.register(RPEntities.SMOKE_EFFECT_AREA, EmptyEntityRender::new);
 

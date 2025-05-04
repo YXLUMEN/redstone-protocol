@@ -31,22 +31,22 @@ public class IncendiaryGrenadeEntity extends AbstractGrenadeEntity {
     protected void explode() {
         World world = this.getWorld();
 
-        world.createExplosion(
-                this,
-                Explosion.createDamageSource(this.getWorld(), this),
-                null,
-                this.getX(),
-                this.getY(),
-                this.getZ(),
-                3.0F,
-                true,
-                World.ExplosionSourceType.NONE,
-                ParticleTypes.LAVA,
-                ParticleTypes.EXPLOSION,
-                SoundEvents.ENTITY_GENERIC_EXPLODE
-        );
-
         if (world instanceof ServerWorld serverWorld) {
+            world.createExplosion(
+                    this,
+                    Explosion.createDamageSource(this.getWorld(), this),
+                    null,
+                    this.getX(),
+                    this.getY(),
+                    this.getZ(),
+                    3.0F,
+                    true,
+                    World.ExplosionSourceType.NONE,
+                    ParticleTypes.LAVA,
+                    ParticleTypes.EXPLOSION,
+                    SoundEvents.ENTITY_GENERIC_EXPLODE
+            );
+
             Box explosionBox = new Box(this.getBlockPos()).expand(EFFECT_DURATION);
             serverWorld.getEntitiesByClass(Entity.class, explosionBox, entity -> entity instanceof LivingEntity)
                     .forEach(entity -> entity.setOnFireFor(20));

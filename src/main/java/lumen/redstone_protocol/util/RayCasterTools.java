@@ -3,6 +3,7 @@ package lumen.redstone_protocol.util;
 import net.minecraft.particle.SimpleParticleType;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 
 // debug
@@ -28,5 +29,17 @@ public class RayCasterTools {
                     0
             );
         }
+    }
+
+    public static Vec3d getRandomDirection(Random random) {
+        double y = 1 - (random.nextDouble() * 2);
+        double radius = Math.sqrt(1 - y * y);
+        double theta = random.nextDouble() * (2 * Math.PI);
+
+        return new Vec3d(
+                Math.cos(theta) * radius,
+                y,
+                Math.sin(theta) * radius
+        ).normalize();
     }
 }

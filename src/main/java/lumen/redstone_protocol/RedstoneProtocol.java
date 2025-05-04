@@ -1,6 +1,5 @@
 package lumen.redstone_protocol;
 
-import lumen.RPItemsGroup;
 import lumen.redstone_protocol.block.RPBlocks;
 import lumen.redstone_protocol.block_entity.RPBlockEntities;
 import lumen.redstone_protocol.effect.RPEffects;

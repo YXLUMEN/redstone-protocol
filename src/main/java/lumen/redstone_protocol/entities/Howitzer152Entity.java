@@ -9,7 +9,7 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
-import static lumen.redstone_protocol.entities.FragGrenadeEntity.getRandomDirection;
+import static lumen.redstone_protocol.util.RayCasterTools.getRandomDirection;
 
 public class Howitzer152Entity extends AbstractGrenadeEntity {
     private static final float POWER = 64;
@@ -39,16 +39,12 @@ public class Howitzer152Entity extends AbstractGrenadeEntity {
         );
 
         if (world instanceof ServerWorld serverWorld) {
-            Vec3d start = this.getPos().add(0, 0.2, 0);
+            Vec3d startPos = this.getPos().add(0, 0.2, 0);
+            TrajectoryRayCaster rayCaster = new TrajectoryRayCaster(serverWorld, this);
+
             for (int i = 0; i < FRAG_COUNT; i++) {
                 Vec3d randomDir = getRandomDirection(this.random);
-                TrajectoryRayCaster.rayCast(
-                        serverWorld,
-                        this,
-                        start,
-                        randomDir,
-                        200.0f
-                );
+                rayCaster.rayCast(startPos, randomDir, 16.0f, false);
             }
         }
 

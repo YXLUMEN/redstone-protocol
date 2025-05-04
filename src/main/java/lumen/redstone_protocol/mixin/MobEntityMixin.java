@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(MobEntity.class)
-public class MobEntityMixin {
+public abstract class MobEntityMixin {
     @Inject(method = "setTarget", at = @At("HEAD"), cancellable = true)
     private void preventTargetingInSmoke(LivingEntity target, CallbackInfo ci) {
         if (target != null && target.hasStatusEffect(RPEffects.SMOKE_CLOAK)) {
