@@ -3,7 +3,6 @@
   "package": "lumen.redstone_protocol.mixin.client",
   "compatibilityLevel": "JAVA_21",
   "client": [
-    "EntityRenderersMixin"
   ],
   "injectors": {
     "defaultRequire": 1

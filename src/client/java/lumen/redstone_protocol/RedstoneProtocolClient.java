@@ -3,17 +3,10 @@ package lumen.redstone_protocol;
 import lumen.redstone_protocol.block.RPBlocks;
 import lumen.redstone_protocol.block_entity.RPBlockEntities;
 import lumen.redstone_protocol.block_entity_render.LaserGenBlockEntityRender;
-import lumen.redstone_protocol.entities.RPEntities;
-import lumen.redstone_protocol.entity_render.EmptyEntityRender;
-import lumen.redstone_protocol.network.BatteryInterrupt;
-import lumen.redstone_protocol.network.FlashEffectClientPacket;
-import lumen.redstone_protocol.render.FlashEffectRenderer;
 import lumen.redstone_protocol.screen.ItemCollectorScreen;
 import lumen.redstone_protocol.screen_handler.RPScreenHandler;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
-import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
@@ -21,13 +14,6 @@ import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 public class RedstoneProtocolClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
-        HudRenderCallback.EVENT.register(FlashEffectRenderer::render);
-
-        FlashEffectClientPacket.register();
-        BatteryInterrupt.register();
-
-        EntityRendererRegistry.register(RPEntities.SMOKE_EFFECT_AREA, EmptyEntityRender::new);
-
         BlockEntityRendererFactories.register(RPBlockEntities.LASER_GEN_ENTITY, LaserGenBlockEntityRender::new);
         HandledScreens.register(RPScreenHandler.ITEM_COLLECTOR_SCREEN_HANDLER_SCREEN_HANDLER_TYPE, ItemCollectorScreen::new);
 

@@ -5,9 +5,7 @@
   "mixins": [
     "BiologicalFieldProtect",
     "ExplosionMixin",
-    "MobEntityMixin",
-    "PersistentProjectileEntityAccessor",
-    "LivingEntityMixin"
+    "PersistentProjectileEntityAccessor"
   ],
   "injectors": {
     "defaultRequire": 1

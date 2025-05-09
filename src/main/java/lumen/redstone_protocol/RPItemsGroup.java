@@ -8,8 +8,6 @@ import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-import static lumen.redstone_protocol.item.RPItems.*;
-
 public class RPItemsGroup {
     public static void registerItemsGroup() {
         Registry.register(
@@ -53,15 +51,6 @@ public class RPItemsGroup {
                             entries.add(RPBlocks.BIOLOGICAL_FIELD);
                             entries.add(RPBlocks.EXPLOSION_ABSORBER_BLOCK);
                             entries.add(RPBlocks.ELEVATOR_BLOCK);
-
-                            entries.add(FRAG_GRENADE);
-                            entries.add(SMOKE_GRENADE);
-                            entries.add(FLASH_GRENADE);
-                            entries.add(INCENDIARY_GRENADE);
-                            entries.add(BATTERY);
-                            entries.add(CELL);
-                            entries.add(MED_KIT);
-                            entries.add(PHOENIX_KIT);
                         })
                         .build()
         );

@@ -1,7 +1,6 @@
 package lumen.redstone_protocol.recipes;
 
 import lumen.redstone_protocol.block.RPBlocks;
-import lumen.redstone_protocol.item.RPItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.server.recipe.RecipeExporter;
@@ -368,87 +367,6 @@ public class BenchRecipes extends FabricRecipeProvider {
                 .input('E', Items.ENDER_PEARL)
                 .group("multi_bench")
                 .criterion(FabricRecipeProvider.hasItem(RPBlocks.ELEVATOR_BLOCK), FabricRecipeProvider.conditionsFromItem(RPBlocks.ELEVATOR_BLOCK))
-                .offerTo(recipeExporter);
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, RPItems.SMOKE_GRENADE, 2)
-                .pattern("IRI")
-                .pattern("IGI")
-                .pattern("III")
-                .input('I', Items.IRON_NUGGET)
-                .input('G', Items.GUNPOWDER)
-                .input('R', Items.REDSTONE)
-                .criterion(FabricRecipeProvider.hasItem(RPItems.SMOKE_GRENADE), FabricRecipeProvider.conditionsFromItem(RPItems.SMOKE_GRENADE))
-                .offerTo(recipeExporter);
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, RPItems.FLASH_GRENADE, 1)
-                .pattern("IRI")
-                .pattern("IGI")
-                .pattern("III")
-                .input('I', Items.IRON_NUGGET)
-                .input('G', Items.GLOWSTONE_DUST)
-                .input('R', Items.REDSTONE)
-                .criterion(FabricRecipeProvider.hasItem(RPItems.FLASH_GRENADE), FabricRecipeProvider.conditionsFromItem(RPItems.FLASH_GRENADE))
-                .offerTo(recipeExporter);
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, RPItems.INCENDIARY_GRENADE, 1)
-                .pattern("IRI")
-                .pattern("IGI")
-                .pattern("III")
-                .input('I', Items.IRON_NUGGET)
-                .input('G', Items.BLAZE_POWDER)
-                .input('R', Items.REDSTONE)
-                .criterion(FabricRecipeProvider.hasItem(RPItems.INCENDIARY_GRENADE), FabricRecipeProvider.conditionsFromItem(RPItems.INCENDIARY_GRENADE))
-                .offerTo(recipeExporter);
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, RPItems.FRAG_GRENADE, 1)
-                .pattern("IRI")
-                .pattern("IGI")
-                .pattern("III")
-                .input('I', Items.IRON_NUGGET)
-                .input('G', Items.IRON_INGOT)
-                .input('R', Items.REDSTONE)
-                .criterion(FabricRecipeProvider.hasItem(RPItems.FRAG_GRENADE), FabricRecipeProvider.conditionsFromItem(RPItems.FRAG_GRENADE))
-                .offerTo(recipeExporter);
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, RPItems.BATTERY, 1)
-                .pattern("ILI")
-                .pattern("IGI")
-                .pattern("ILI")
-                .input('I', Items.IRON_INGOT)
-                .input('G', Items.GOLDEN_APPLE)
-                .input('L', Items.LAPIS_LAZULI)
-                .criterion(FabricRecipeProvider.hasItem(RPItems.BATTERY), FabricRecipeProvider.conditionsFromItem(RPItems.BATTERY))
-                .offerTo(recipeExporter);
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, RPItems.CELL, 2)
-                .pattern("ILI")
-                .pattern("IGI")
-                .input('I', Items.IRON_INGOT)
-                .input('G', Items.GOLDEN_APPLE)
-                .input('L', Items.LAPIS_LAZULI)
-                .criterion(FabricRecipeProvider.hasItem(RPItems.CELL), FabricRecipeProvider.conditionsFromItem(RPItems.CELL))
-                .offerTo(recipeExporter);
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, RPItems.MED_KIT, 1)
-                .pattern("RRR")
-                .pattern("RGR")
-                .pattern("INI")
-                .input('I', Items.IRON_INGOT)
-                .input('G', Items.GOLDEN_CARROT)
-                .input('R', Items.RED_WOOL)
-                .input('N', Items.IRON_NUGGET)
-                .criterion(FabricRecipeProvider.hasItem(RPItems.MED_KIT), FabricRecipeProvider.conditionsFromItem(RPItems.MED_KIT))
-                .offerTo(recipeExporter);
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, RPItems.PHOENIX_KIT, 1)
-                .pattern("ILI")
-                .pattern("GEG")
-                .pattern("ILI")
-                .input('I', Items.IRON_INGOT)
-                .input('E', Items.ENCHANTED_GOLDEN_APPLE)
-                .input('G', Items.GOLDEN_CARROT)
-                .input('L', Items.LAPIS_LAZULI)
-                .criterion(FabricRecipeProvider.hasItem(RPItems.PHOENIX_KIT), FabricRecipeProvider.conditionsFromItem(RPItems.PHOENIX_KIT))
                 .offerTo(recipeExporter);
 
         // 原版增强

@@ -14,7 +14,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class ElevatorBlockEntity extends BlockEntity {
-    public static final short ACTIVE_RADIUS = 64;
+    public static final short ACTIVE_RADIUS = 72;
     public static final short TELEPORT_COOLDOWN = 15;
 
     private final Box detectionBox = new Box(pos).expand(0, 0.5, 0);
